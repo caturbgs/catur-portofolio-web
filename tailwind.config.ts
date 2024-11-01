@@ -29,7 +29,8 @@ const config = {
     },
     extend: {
       fontFamily: {
-        sans: ["Montserrat", ...fontFamily.sans],
+        sans: ["Inter", ...fontFamily.sans],
+        mono: ["Inconsolata", ...fontFamily.mono],
       },
       fontSize: {
         "heading-1": [
@@ -68,7 +69,6 @@ const config = {
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
-          "2": "hsl(var(--secondary-2))",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
@@ -77,7 +77,6 @@ const config = {
         success: "hsl(var(--success))",
         info: "hsl(var(--info))",
         warning: "hsl(var(--warning))",
-        green: "hsl(var(--green))",
         muted: {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
@@ -85,9 +84,6 @@ const config = {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
-          primary: "hsl(var(--accent-primary))",
-          "grey-1": "hsl(var(--accent-grey-1))",
-          "grey-2": "hsl(var(--accent-grey-2))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -97,10 +93,6 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-      },
-      backgroundImage: {
-        // homepage:
-        //   "linear-gradient(rgba(0, 0, 0, 0.8), rgba(255, 255, 255, 0), rgba(0, 0, 0, 1)), url('/jsi-background-image.jpeg')",
       },
       borderRadius: {
         xl: "calc(var(--radius) + 4px)",
@@ -125,12 +117,18 @@ const config = {
           from: { height: "var(--radix-collapsible-content-height)" },
           to: { height: "0" },
         },
+        "ring-bell": {
+          "0%, 100%": { transform: "rotate(0deg)" },
+          "20%, 60%": { transform: "rotate(12.5deg)" },
+          "40%, 80%": { transform: "rotate(-12.5deg)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "collapsible-down": "collapsible-down 0.2s ease-in-out",
         "collapsible-up": "collapsible-up 0.2s ease-in-out",
+        "ring-bell": "ring-bell 0.5s ease-in-out",
       },
     },
   },
