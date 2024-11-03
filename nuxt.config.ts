@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: "2024-04-03",
+  compatibilityDate: "2024-11-03",
   devtools: { enabled: true },
   modules: ["@nuxtjs/tailwindcss", "shadcn-nuxt", "@nuxtjs/google-fonts", "@nuxt/image", "@vueuse/nuxt"],
   shadcn: {
@@ -36,12 +36,12 @@ export default defineNuxtConfig({
         { hid: "description", name: "description", content: "Catur Bagaskara" },
       ],
       link: [
-        // { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
-        // { rel: "icon", type: "image/png", href: "/favicon-16x16.png", sizes: "16x16" },
-        // { rel: "icon", type: "image/png", href: "/favicon-32x32.png", sizes: "32x32" },
-        // { rel: "icon", type: "image/png", href: "/android-chrome-192x192.png", sizes: "192x192" },
-        // { rel: "icon", type: "image/png", href: "/android-chrome-512x512.png", sizes: "512x512" },
-        // { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+        { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+        { rel: "icon", type: "image/png", href: "/favicon-16x16.png", sizes: "16x16" },
+        { rel: "icon", type: "image/png", href: "/favicon-32x32.png", sizes: "32x32" },
+        { rel: "icon", type: "image/png", href: "/android-chrome-192x192.png", sizes: "192x192" },
+        { rel: "icon", type: "image/png", href: "/android-chrome-512x512.png", sizes: "512x512" },
+        { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
       ],
     },
   },

@@ -20,14 +20,14 @@ watchEffect(() => {
 <template>
 <!-- TODO: responsive navbar -->
     <header
-        class="sticky top-0 z-20 font-mono h-[--navbar-height-mobile] md:h-[--navbar-height] w-full"
+        class="sticky top-0 z-20 h-[--navbar-height-mobile] md:h-[--navbar-height] w-full transition-colors"
     >
         <div class="flex items-center justify-between w-full h-full">
             <!-- Logo Name -->
-            <h2 class="text-2xl font-semibold">Catur Bagaskara</h2>
+            <h2 class="text-2xl font-semibold cursor-default">Catur Bagaskara</h2>
             <div class="flex items-center space-x-10">
                 <!-- Navigation Menu -->
-                <Navbar />
+                <Navbar class="font-mono" />
                 <!-- Theme Toggle Button -->
                 <TooltipProvider>
                     <Tooltip>

@@ -11,6 +11,7 @@ const route = useRoute();
     <NuxtLink to="/">
         <Button
             variant="ghost"
+            size="xs"
             class="text-base font-medium transition-colors hover:text-primary hover:bg-accent/10"
             :class="{ 'text-primary': route.path === '/' }"
         >
@@ -20,6 +21,7 @@ const route = useRoute();
     <NuxtLink to="/about">
         <Button
             variant="ghost"
+            size="xs"
             class="text-base font-medium transition-colors hover:text-primary hover:bg-accent/10"
             :class="{ 'text-primary': route.path === '/about' }"
         >
@@ -29,6 +31,7 @@ const route = useRoute();
     <NuxtLink to="/project">
         <Button
             variant="ghost"
+            size="xs"
             class="text-base font-medium transition-colors hover:text-primary hover:bg-accent/10"
             :class="{ 'text-primary': route.path === '/project' }"
         >
