@@ -2,6 +2,9 @@
 import { useColorMode } from "@vueuse/core";
 import { Computer, Moon, Sun } from "lucide-vue-next";
 
+// get route
+const route = useRoute();
+
 // Get the color mode from the theme
 const colorMode = useColorMode();
 const colorModeWithSystem = computed(() =>
@@ -12,7 +15,6 @@ const { state, next } = useCycleList(["auto", "light", "dark"] as const, { initi
 
 // Update color mode when the state changes
 watchEffect(() => {
-  // console.info("state", state.value, colorMode.value, colorModeWithSystem.value);
   colorMode.value = state.value;
 });
 </script>
@@ -24,7 +26,18 @@ watchEffect(() => {
     >
         <div class="flex items-center justify-between w-full h-full">
             <!-- Logo Name -->
-            <h2 class="text-2xl font-semibold cursor-default">Catur Bagaskara</h2>
+            <h2 v-if="route.path === '/'" class="text-2xl font-bold px-2 cursor-default">Catur Bagaskara</h2>
+            <NuxtLink v-else to="/">
+                <Button
+                    variant="ghost"
+                    size="xs"
+                    class="text-2xl font-bold transition-colors hover:text-current h-10 rounded-md hover:bg-accent/10"
+                >
+                Catur Bagaskara
+                </Button>
+            </NuxtLink>
+
+
             <div class="flex items-center space-x-10">
                 <!-- Navigation Menu -->
                 <Navbar class="font-mono" />

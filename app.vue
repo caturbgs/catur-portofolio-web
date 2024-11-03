@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { usePreferredColorScheme, useScroll, useWindowSize } from "@vueuse/core";
-
 const el = ref<HTMLElement | null>(null);
 </script>
 

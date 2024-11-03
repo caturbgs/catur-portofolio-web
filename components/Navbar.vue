@@ -1,29 +1,16 @@
 <script setup lang="ts">
 import { cn } from "@/lib/utils";
-
-const route = useRoute();
 </script>
 
 <template>
   <nav
     :class="cn('flex items-center space-x-4 lg:space-x-10', $attrs.class ?? '')"
   >
-    <NuxtLink to="/">
-        <Button
-            variant="ghost"
-            size="xs"
-            class="text-base font-medium transition-colors hover:text-primary hover:bg-accent/10"
-            :class="{ 'text-primary': route.path === '/' }"
-        >
-        Home
-        </Button>
-    </NuxtLink>
     <NuxtLink to="/about">
         <Button
             variant="ghost"
             size="xs"
-            class="text-base font-medium transition-colors hover:text-primary hover:bg-accent/10"
-            :class="{ 'text-primary': route.path === '/about' }"
+            class="text-base font-medium transition-colors hover:text-current h-10 rounded-md hover:bg-accent/10"
         >
         About
         </Button>
@@ -32,8 +19,7 @@ const route = useRoute();
         <Button
             variant="ghost"
             size="xs"
-            class="text-base font-medium transition-colors hover:text-primary hover:bg-accent/10"
-            :class="{ 'text-primary': route.path === '/project' }"
+            class="text-base font-medium transition-colors hover:text-current h-10 rounded-md hover:bg-accent/10"
         >
         Project
         </Button>
