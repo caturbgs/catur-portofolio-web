@@ -3,7 +3,7 @@ import { Github, Instagram, Twitter } from "lucide-vue-next";
 </script>
 
 <template>
-    <footer class="w-full h-16 text-sm font-mono transition-colors">
+    <footer class="w-full h-[var(--header-height)] text-sm font-mono transition-colors">
         <div class="w-full h-full flex justify-between items-center">
             <HoverCard :open-delay="0">
                 <HoverCardTrigger>

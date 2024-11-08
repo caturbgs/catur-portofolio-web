@@ -17,12 +17,19 @@ const { state, next } = useCycleList(["auto", "light", "dark"] as const, { initi
 watchEffect(() => {
   colorMode.value = state.value;
 });
+
+/**
+ * Add transition during theme change using startViewTransition
+ */
+function handleChangeTheme() {
+  if (!document.startViewTransition) next();
+  document.startViewTransition(next);
+}
 </script>
 
 <template>
-<!-- TODO: responsive navbar -->
     <header
-        class="sticky top-0 z-20 h-[--navbar-height-mobile] md:h-[--navbar-height] w-full transition-colors"
+        class="sticky top-0 z-20 h-[--header-height-mobile] md:h-[--header-height] w-full transition-colors"
     >
         <div class="flex items-center justify-between w-full h-full">
             <!-- Logo Name -->
@@ -42,19 +49,17 @@ watchEffect(() => {
                 <!-- Navigation Menu -->
                 <Navbar class="font-mono" />
                 <!-- Theme Toggle Button -->
-                <TooltipProvider>
+                <TooltipProvider :delay-duration="0" disable-closing-trigger>
                     <Tooltip>
                         <TooltipTrigger as-child>
-                            <Button variant="outline" size="icon" class="hover:bg-accent/10 bg-transparent border-0 group" @click="next()">
+                            <Button variant="outline" size="icon" class="hover:bg-accent/10 bg-transparent border-0 group" @click="handleChangeTheme()">
                                 <Computer v-if="state === 'auto'" class="size-6 group-hover:animate-ring-bell" />
                                 <Moon v-else-if="state === 'dark'" class="size-6 group-hover:animate-ring-bell" />
                                 <Sun v-else-if="state === 'light'" class="size-6 group-hover:animate-ring-bell" />
                             </Button>
                         </TooltipTrigger>
                         <TooltipContent>
-                            <p v-if="state === 'auto'" class="font-mono">Switch to Light Mode</p>
-                            <p v-else-if="state === 'dark'" class="font-mono">Switch to System Preference</p>
-                            <p v-else-if="state === 'light'" class="font-mono">Switch to Dark Mode</p>
+                            <p class="font-mono">Switch to {{ state === 'auto' ? 'Light Mode' : state === 'dark' ? 'System Preference' : 'Dark Mode' }}</p>
                         </TooltipContent>
                     </Tooltip>
                 </TooltipProvider>
