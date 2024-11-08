@@ -3,7 +3,7 @@ import { Github, Instagram, Twitter } from "lucide-vue-next";
 </script>
 
 <template>
-    <footer class="w-full h-[var(--header-height)] text-sm font-mono transition-colors">
+    <footer class="w-full h-[--header-height-mobile] sm:h-[--header-height] text-sm font-mono transition-colors px-2 sm:px-0">
         <div class="w-full h-full flex justify-between items-center">
             <HoverCard :open-delay="0">
                 <HoverCardTrigger>
@@ -32,6 +32,7 @@ import { Github, Instagram, Twitter } from "lucide-vue-next";
                     </div>
                 </HoverCardContent>
             </HoverCard>
+
             <NuxtLink to="https://github.com/caturbgs/catur-portofolio-web" target="_blank">
                 <p class="border-b border-gray-300 dark:border-gray-500 hover:border-gray-600 dark:hover:border-white">Source</p>
             </NuxtLink>
