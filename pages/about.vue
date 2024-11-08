@@ -1,5 +1,5 @@
 <template>
-    <div class="h-full">
-        <h1>Hello World</h1>
+    <div class="py-8">
+        <h1 class="text-3xl font-bold">About</h1>
     </div>
 </template>

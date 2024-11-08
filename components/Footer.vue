@@ -9,7 +9,7 @@ import { Github, Instagram, Twitter } from "lucide-vue-next";
                 <HoverCardTrigger>
                     <p class="text-gray-500">Catur Bagaskara</p>
                 </HoverCardTrigger>
-                <HoverCardContent class="w-full p-2">
+                <HoverCardContent class="w-full p-2 font-mono">
                     <div class="flex flex-col gap-2">
                         <Button as-child variant="ghost"
                             class="justify-start gap-3 text-sm font-medium transition-colors hover:text-primary hover:bg-accent/10">
