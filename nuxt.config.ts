@@ -1,7 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-03",
-  devtools: { enabled: true },
+  devtools: {
+    enabled: true,
+
+    timeline: {
+      enabled: true,
+    },
+  },
   modules: ["@nuxtjs/tailwindcss", "shadcn-nuxt", "@nuxtjs/google-fonts", "@nuxt/image", "@vueuse/nuxt"],
   shadcn: {
     /**
@@ -23,5 +29,9 @@ export default defineNuxtConfig({
       },
       Inconsolata: true,
     },
+  },
+
+  app: {
+    rootTag: "body",
   },
 });
