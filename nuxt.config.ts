@@ -8,7 +8,26 @@ export default defineNuxtConfig({
       enabled: true,
     },
   },
-  modules: ["@nuxtjs/tailwindcss", "shadcn-nuxt", "@nuxtjs/google-fonts", "@nuxt/image", "@vueuse/nuxt"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "shadcn-nuxt",
+    "@nuxtjs/google-fonts",
+    "@nuxt/image",
+    "@vueuse/nuxt",
+    "@nuxt/content",
+  ],
+
+  // App Config
+  app: {
+    rootTag: "body",
+    // pageTransition: {
+    //   name: "page",
+    //   mode: "out-in",
+    // },
+  },
+  css: ["~/assets/css/tailwind.css", "~/assets/css/global.css"],
+
+  // Shadcn UI Vue
   shadcn: {
     /**
      * Prefix for all the imported component
@@ -29,9 +48,5 @@ export default defineNuxtConfig({
       },
       Inconsolata: true,
     },
-  },
-
-  app: {
-    rootTag: "body",
   },
 });
