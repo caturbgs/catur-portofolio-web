@@ -101,14 +101,6 @@ jobs:
             # Exit on any error
             set -e
 
-            # OPTION 1: Create/update .env file with secrets from GitHub Actions
-            # This file will be read by docker-compose.yaml at runtime
-            # Add any new environment variables here that you added to the 'envs' section above
-            cat > .env << EOF
-            NUXT_PUBLIC_API_BASE=${NUXT_PUBLIC_API_BASE}
-            # Add more environment variables here as needed:
-            EOF
-
             # Navigate to your project directory on the VPS
             cd /home/caturbgs/code/catur-portofolio-web
 
@@ -116,6 +108,17 @@ jobs:
             echo "Current directory: $(pwd)"
             echo "Files in directory:"
             ls -la
+
+            # OPTION 1: Create/update .env file with secrets from GitHub Actions
+            # This file will be read by docker-compose.yaml at runtime
+            # Add any new environment variables here that you added to the 'envs' section above
+            cat > .env << EOF
+            NUXT_PUBLIC_API_BASE=${NUXT_PUBLIC_API_BASE}
+            # Add more environment variables here as needed:
+            EOF
+            # Verify the .env file was created
+            echo "Contents of .env:"
+            cat .env
 
             # Update the repository to get latest docker-compose.yaml
             git fetch origin main
