@@ -3,12 +3,15 @@ version: "3"
 services:
   catur-portofolio-web:
     container_name: catur-portofolio-web
-    image: catur-portofolio-web:latest
-    build:
-      context: .
-      dockerfile: Dockerfile
-      # args:
-      #   NUXT_SESSION_PASSWORD: "RfYt0lL6tNxuLjmFnEQTXILHPZ9PfIrJxMlw6FQ40E8="
+    # !!! IMPORTANT CHANGE HERE !!!
+    # Replace 'catur-portofolio-web:latest' with your GHCR image path
+    image: ghcr.io/${{ github.repository_owner }}/catur-portofolio-web:latest
+    # image: catur-portofolio-web:latest
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+    # args:
+    #   NUXT_SESSION_PASSWORD: "RfYt0lL6tNxuLjmFnEQTXILHPZ9PfIrJxMlw6FQ40E8="
     restart: unless-stopped
     ports:
       - "3000:3000"

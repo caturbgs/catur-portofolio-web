@@ -1,0 +1,61 @@
+name: Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: |
+            ghcr.io/${{ github.repository_owner }}/catur-portofolio-web:latest
+            ghcr.io/${{ github.repository_owner }}/catur-portofolio-web:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build-and-push # This job will only run after 'build-and-push' completes successfully
+    steps:
+      - name: Deploy to server
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.SERVER_HOST }}
+          # port: ${{ secrets.SERVER_PORT }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          key: ${{ secrets.SERVER_SSH_KEY }}
+          script: |
+            # Navigate to your project directory on the VPS
+            cd /home/caturbgs/code/catur-portofolio-web
+
+            # Log in to GitHub Container Registry on the server
+            # This uses the GITHUB_TOKEN passed as an environment variable to the SSH action
+            echo ${{ secrets.GH_CR_PAT }} | docker login ghcr.io -u ${{ secrets.GH_CR_USERNAME }} --password-stdin
+
+            # Pull the latest image from the registry
+            docker compose pull
+
+            # Start/restart containers with the new image
+            # No --build is needed here as the image is pre-built
+            docker compose up -d
+
+            # Optional: Prune old Docker images to free up space
+            docker image prune -f
