@@ -49,19 +49,51 @@ jobs:
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
+            # Exit on any error
+            set -e
+
             # Navigate to your project directory on the VPS
             cd /home/caturbgs/code/catur-portofolio-web
 
+            # Verify we're in the right directory
+            echo "Current directory: $(pwd)"
+            echo "Files in directory:"
+            ls -la
+
+            # Update the repository to get latest docker-compose.yaml
+            git fetch origin main
+            git reset --hard origin/main
+
             # Log in to GitHub Container Registry on the server
-            # This uses the GITHUB_TOKEN passed as an environment variable to the SSH action
+            echo "Logging into GitHub Container Registry..."
             echo ${{ secrets.GH_CR_PAT }} | docker login ghcr.io -u ${{ secrets.GH_CR_USERNAME }} --password-stdin
 
             # Pull the latest image from the registry
+            echo "Pulling latest Docker image..."
             docker compose pull
 
-            # Start/restart containers with the new image
-            # No --build is needed here as the image is pre-built
+            # Stop existing containers
+            echo "Stopping existing containers..."
+            docker compose down
+
+            # Start containers with the new image
+            echo "Starting containers..."
             docker compose up -d
 
+            # Wait a moment for containers to start
+            sleep 5
+
+            # Check container status
+            echo "Container status:"
+            docker compose ps
+            docker ps -a
+
+            # Show logs if container failed to start
+            if ! docker compose ps | grep -q "Up"; then
+              echo "Container logs:"
+              docker compose logs
+            fi
+
             # Optional: Prune old Docker images to free up space
+            echo "Cleaning up old images..."
             docker image prune -f
