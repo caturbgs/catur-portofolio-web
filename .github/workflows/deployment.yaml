@@ -5,6 +5,40 @@ on:
     branches:
       - main
 
+# =============================================================================
+# ENVIRONMENT VARIABLES CONFIGURATION
+# =============================================================================
+# This workflow supports two approaches for handling environment variables:
+#
+# OPTION 1: RUNTIME ENVIRONMENT VARIABLES (Recommended)
+# - Environment variables are passed from GitHub Secrets to the server at deployment time
+# - Variables are injected into a .env file on the server during deployment
+# - Docker containers read these variables at runtime via docker-compose.yaml
+# - Best for: Database URLs, API keys, session secrets, configuration that changes per environment
+# - Advantages: Easy to update without rebuilding, more secure, environment-specific values
+#
+# OPTION 2: BUILD-TIME ENVIRONMENT VARIABLES
+# - Environment variables are passed during the Docker image build process
+# - Variables are baked into the Docker image during GitHub Actions build
+# - Best for: Public configuration, API endpoints that don't change, build-specific settings
+# - Advantages: Values are compiled into the build, immutable once built
+#
+# REQUIRED GITHUB SECRETS:
+# For both options, add these secrets in Repository Settings → Secrets and variables → Actions:
+# - SERVER_HOST: Your VPS IP address or hostname
+# - SERVER_USERNAME: SSH username for your VPS
+# - SERVER_SSH_KEY: Private SSH key for server access
+# - GH_CR_USERNAME: Your GitHub username
+# - GH_CR_PAT: Personal Access Token with packages:write permission
+#
+# For environment variables (add as needed):
+# - NUXT_SESSION_PASSWORD: Session secret for Nuxt
+# - NUXT_PUBLIC_API_BASE: Public API base URL (if needed at build time)
+# - DATABASE_URL: Database connection string (if using database)
+# - Any other application-specific environment variables
+#
+# =============================================================================
+
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
@@ -34,6 +68,13 @@ jobs:
           tags: |
             ghcr.io/${{ github.repository_owner }}/catur-portofolio-web:latest
             ghcr.io/${{ github.repository_owner }}/catur-portofolio-web:${{ github.sha }}
+          # OPTION 2: BUILD-TIME ENVIRONMENT VARIABLES (Optional)
+          # Uncomment and configure the build-args section below if you need variables at build time
+          # These variables will be baked into the Docker image during the build process
+          # build-args: |
+          #   NUXT_PUBLIC_API_BASE=${{ secrets.NUXT_PUBLIC_API_BASE }}
+          #   NODE_ENV=production
+          #   # Add more build-time variables as needed
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
@@ -43,14 +84,30 @@ jobs:
     steps:
       - name: Deploy to server
         uses: appleboy/ssh-action@v1.2.0
+        env:
+          # Map GitHub Secrets/Environment Variables to environment variables
+          NUXT_PUBLIC_API_BASE: ${{ env.NUXT_PUBLIC_API_BASE }}
+          NODE_ENV: production
         with:
           host: ${{ secrets.SERVER_HOST }}
           # port: ${{ secrets.SERVER_PORT }}
           username: ${{ secrets.SERVER_USERNAME }}
           key: ${{ secrets.SERVER_SSH_KEY }}
+          # OPTION 1: RUNTIME ENVIRONMENT VARIABLES (RECOMMENDED)
+          # Pass GitHub Secrets as environment variables to the SSH session
+          # Add any new environment variables to both 'envs' and 'env' sections
+          envs: NUXT_PUBLIC_API_BASE
           script: |
             # Exit on any error
             set -e
+
+            # OPTION 1: Create/update .env file with secrets from GitHub Actions
+            # This file will be read by docker-compose.yaml at runtime
+            # Add any new environment variables here that you added to the 'envs' section above
+            cat > .env << EOF
+            NUXT_PUBLIC_API_BASE=${NUXT_PUBLIC_API_BASE}
+            # Add more environment variables here as needed:
+            EOF
 
             # Navigate to your project directory on the VPS
             cd /home/caturbgs/code/catur-portofolio-web
@@ -97,3 +154,58 @@ jobs:
             # Optional: Prune old Docker images to free up space
             echo "Cleaning up old images..."
             docker image prune -f
+
+# =============================================================================
+# SETUP GUIDE
+# =============================================================================
+#
+# 1. CHOOSE YOUR ENVIRONMENT VARIABLE STRATEGY:
+#
+#    OPTION 1 - RUNTIME VARIABLES (Recommended for most use cases):
+#    ✅ Use when: Database URLs, API keys, secrets, config that changes per environment
+#    ✅ Setup: Variables are passed via GitHub Secrets → .env file → Docker runtime
+#    ✅ Benefits: Easy to update, secure, environment-specific, no rebuild needed
+#
+#    OPTION 2 - BUILD-TIME VARIABLES (For specific cases):
+#    ⚠️  Use when: Public API endpoints, build flags, immutable configuration
+#    ⚠️  Setup: Variables are baked into Docker image during GitHub Actions build
+#    ⚠️  Benefits: Immutable once built, compiled into the application
+#
+# 2. GITHUB SECRETS SETUP:
+#    Go to: Repository Settings → Secrets and variables → Actions
+#    Add these required secrets:
+#    • SERVER_HOST (your VPS IP/hostname)
+#    • SERVER_USERNAME (SSH username)
+#    • SERVER_SSH_KEY (private SSH key content)
+#    • GH_CR_USERNAME (your GitHub username)
+#    • GH_CR_PAT (Personal Access Token with packages:write scope)
+#
+#    Add your application secrets (examples):
+#    • NUXT_SESSION_PASSWORD
+#    • NUXT_PUBLIC_API_BASE
+#    • DATABASE_URL
+#    • SMTP_HOST
+#    • Any other environment variables your app needs
+#
+# 3. DOCKERFILE SETUP (if using Option 2):
+#    Add ARG and ENV instructions for build-time variables:
+#    ARG NUXT_PUBLIC_API_BASE
+#    ENV NUXT_PUBLIC_API_BASE=${NUXT_PUBLIC_API_BASE}
+#
+# 4. DOCKER-COMPOSE.YAML SETUP:
+#    For Option 1 (Runtime): Use env_file: .env
+#    For Option 2 (Build-time): Variables are already in the image
+#
+# 5. SERVER PREPARATION:
+#    • Ensure Docker and Docker Compose are installed
+#    • Create project directory: /home/caturbgs/code/catur-portofolio-web
+#    • Clone your repository to that directory
+#    • Ensure your user can run Docker commands (add to docker group)
+#
+# 6. TESTING:
+#    • Push to main branch to trigger deployment
+#    • Check GitHub Actions logs for any errors
+#    • SSH to server and run: docker ps -a (should show running container)
+#    • Check application logs: docker compose logs
+#
+# =============================================================================

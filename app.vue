@@ -18,15 +18,19 @@ useHead({
     class: "font-sans antialiased",
   },
 });
+
+const env = useRuntimeConfig();
+
+console.info("env", env);
 </script>
 
-
 <template>
-    <Header />
-    <main
-        class="container px-3 sm:p-8 md:max-w-screen-md min-h-[calc(100vh-(var(--header-height-mobile)*2))] md:min-h-[calc(100vh-(var(--header-height)*2))]">
-        <NuxtPage />
-    </main>
-    <Footer />
-    <Toaster rich-colors />
+  <Header />
+  <main
+    class="container px-3 sm:p-8 md:max-w-screen-md min-h-[calc(100vh-(var(--header-height-mobile)*2))] md:min-h-[calc(100vh-(var(--header-height)*2))]"
+  >
+    <NuxtPage />
+  </main>
+  <Footer />
+  <Toaster rich-colors />
 </template>

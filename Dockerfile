@@ -16,12 +16,11 @@ RUN bun install --frozen-lockfile
 COPY . .
 
 # Environment variables at build time
-# ARG NUXT_SESSION_PASSWORD
-# ENV NUXT_SESSION_PASSWORD=${NUXT_SESSION_PASSWORD}
+ARG NUXT_PUBLIC_API_BASE
+ENV NUXT_PUBLIC_API_BASE=${NUXT_PUBLIC_API_BASE}
 
 # Build the Nuxt application
 RUN bun run build
-CMD [ "ls -ls" ]
 
 # Production stage
 FROM base-node AS runner
@@ -32,9 +31,8 @@ WORKDIR /app
 # Copy built app from builder stage
 COPY --from=builder /app/.output /app/.output
 
-# Environment variables at build time
-# ARG NUXT_SESSION_PASSWORD
-# ENV NUXT_SESSION_PASSWORD=${NUXT_SESSION_PASSWORD}
+# Build-time environment variables are already baked into the build
+# Runtime environment variables can be passed via docker-compose.yaml
 
 # Set environment variable
 # ENV NODE_ENV=production

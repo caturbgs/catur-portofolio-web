@@ -49,4 +49,10 @@ export default defineNuxtConfig({
       Inconsolata: true,
     },
   },
+
+  runtimeConfig: {
+    public: {
+      apiBase: "/api",
+    },
+  },
 });

@@ -1,17 +1,14 @@
-version: "3"
-
 services:
   catur-portofolio-web:
     container_name: catur-portofolio-web
-    # !!! IMPORTANT CHANGE HERE !!!
-    # Replace 'catur-portofolio-web:latest' with your GHCR image path
+    platform: linux/amd64
     image: ghcr.io/caturbgs/catur-portofolio-web:latest
-    # image: catur-portofolio-web:latest
-    # build:
-    #   context: .
-    #   dockerfile: Dockerfile
-    # args:
-    #   NUXT_SESSION_PASSWORD: "RfYt0lL6tNxuLjmFnEQTXILHPZ9PfIrJxMlw6FQ40E8="
+    env_file:
+      - .env
+    # Environment variables will be loaded from .env file
+    # You can still override specific variables here if needed
+    # environment:
+    #   - NUXT_PUBLIC_API_BASE=/api/new
     restart: unless-stopped
     ports:
       - "3000:3000"
