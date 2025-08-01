@@ -1,0 +1,23 @@
+version: "3"
+
+services:
+  catur-portofolio-web:
+    container_name: catur-portofolio-web
+    image: catur-portofolio-web:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+      # args:
+      #   NUXT_SESSION_PASSWORD: "RfYt0lL6tNxuLjmFnEQTXILHPZ9PfIrJxMlw6FQ40E8="
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    # resources limitation
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: 128M
+        reservations:
+          cpus: "0.25"
+          memory: 128M

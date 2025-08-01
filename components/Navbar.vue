@@ -18,7 +18,6 @@ const mode = useColorMode({
 
 // Use the cycle list to cycle through the color modes
 const { state, next } = useCycleList(["auto", "light", "dark"] as const, { initialValue: mode });
-console.log({ state: state.value, mode: mode.value });
 
 // Update color mode when the state changes
 watchEffect(() => (mode.value = state.value));
