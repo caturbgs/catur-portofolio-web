@@ -1,0 +1,21 @@
+services:
+  catur-portofolio-web:
+    container_name: catur-portofolio-web
+    image: catur-portofolio-web:local
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - NUXT_PUBLIC_API_BASE=/api/update
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    # resources limitation
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: 128M
+        reservations:
+          cpus: "0.25"
+          memory: 128M
