@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { StepperDescriptionProps } from "radix-vue";
 import { StepperDescription, useForwardProps } from "radix-vue";
-import { type HTMLAttributes, computed } from "vue";
+import { computed, type HTMLAttributes } from "vue";
 
 import { cn } from "@/lib/utils";
 

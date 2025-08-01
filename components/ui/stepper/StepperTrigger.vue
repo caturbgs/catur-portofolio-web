@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { StepperTriggerProps } from "radix-vue";
 import { StepperTrigger, useForwardProps } from "radix-vue";
-import { type HTMLAttributes, computed } from "vue";
+import { computed, type HTMLAttributes } from "vue";
 
 import { cn } from "@/lib/utils";
 
