@@ -4,7 +4,6 @@ useHead({
   meta: [
     { name: "description", content: "Catur Bagaskara" },
     { name: "viewport", content: "width=device-width, initial-scale=1" },
-    { hid: "description", name: "description", content: "Catur Bagaskara" },
   ],
   link: [
     { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
@@ -18,10 +17,6 @@ useHead({
     class: "font-sans antialiased",
   },
 });
-
-const env = useRuntimeConfig();
-
-console.info("env", env);
 </script>
 
 <template>
