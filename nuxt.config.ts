@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  ssr: false, // Disable server-side rendering for static deployment
   compatibilityDate: "2024-11-03",
   devtools: {
     enabled: true,
@@ -19,6 +20,7 @@ export default defineNuxtConfig({
 
   // App Config
   app: {
+    baseURL: process.env.NUXT_APP_BASE_URL || "/", // Set base URL for GitHub Pages
     rootTag: "body",
     // pageTransition: {
     //   name: "page",
