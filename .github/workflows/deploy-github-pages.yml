@@ -10,7 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      id-token: write # Add this line
+      id-token: write
+      pages: write # Add this line
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
