@@ -25,7 +25,10 @@ jobs:
         run: bun install
 
       - name: Generate static site
-        run: bun run generate
+        run: bun run generate --no-symlinks # Add --no-symlinks flag
+
+      - name: Remove symlinks
+        run: find .output/public -type l -delete # Remove symlinks
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
