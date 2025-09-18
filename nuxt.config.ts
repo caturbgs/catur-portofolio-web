@@ -20,7 +20,7 @@ export default defineNuxtConfig({
 
   // App Config
   app: {
-    baseURL: process.env.NUXT_APP_BASE_URL || "/", // Set base URL for GitHub Pages
+    baseURL: "/catur-portofolio-web/", // Set base URL for GitHub Pages
     rootTag: "body",
     // pageTransition: {
     //   name: "page",
