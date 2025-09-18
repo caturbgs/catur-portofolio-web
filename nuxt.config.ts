@@ -20,12 +20,14 @@ export default defineNuxtConfig({
 
   // App Config
   app: {
-    baseURL: "/catur-portofolio-web/", // Set base URL for GitHub Pages
-    rootTag: "body",
-    // pageTransition: {
-    //   name: "page",
-    //   mode: "out-in",
-    // },
+    baseURL: "/catur-portofolio-web/",
+    head: {
+      link: [
+        { rel: "icon", type: "image/x-icon", href: "/catur-portofolio-web/favicon.ico" },
+        { rel: "manifest", href: "/catur-portofolio-web/site.webmanifest" },
+      ],
+      meta: [{ name: "theme-color", content: "#ffffff" }],
+    },
   },
   css: ["~/assets/css/tailwind.css", "~/assets/css/global.css"],
 
