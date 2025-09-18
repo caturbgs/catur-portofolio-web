@@ -24,6 +24,10 @@ jobs:
       - name: Detect package manager
         id: detect-package-manager
         run: echo "manager=bun" >> $GITHUB_OUTPUT && echo "command=install" >> $GITHUB_OUTPUT
+      - name: Setup Node.js and Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest # Or specify a version
       - name: Setup Pages
         uses: actions/configure-pages@v4
         with:
@@ -34,7 +38,7 @@ jobs:
           path: |
             .nuxt
             node_modules
-          key: ${{ runner.os }}-nuxt-build-${{ hashFiles('**/package-lock.json', '**/bun.lockb') }}
+          key: ${{ runner.os }}-nuxt-build-${{ hashFiles('**/package-lock.json', '**/bun.lockb', '**/bun.lock') }}
           restore-keys: |
             ${{ runner.os }}-nuxt-build-
       - name: Install dependencies
