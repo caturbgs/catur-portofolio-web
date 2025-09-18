@@ -26,6 +26,12 @@ jobs:
       - name: Generate static site
         run: bun run generate
 
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: github-pages
+          path: .output/public
+
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
         with:
