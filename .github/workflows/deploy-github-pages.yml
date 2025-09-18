@@ -21,24 +21,25 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Detect package manager
-        id: detect-package-manager
-        run: echo "manager=bun" >> $GITHUB_OUTPUT && echo "command=install" >> $GITHUB_OUTPUT
-      - name: Setup Node.js and Bun
+      - name: Setup Bun
         uses: oven-sh/setup-bun@v1
         with:
           bun-version: latest # Or specify a version
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5
         with:
+          # Automatically inject router.base in your Nuxt configuration file and set
+          # target to static (https://nuxtjs.org/docs/configuration-glossary/configuration-target/).
+          #
+          # You may remove this line if you want to manage the configuration yourself.
           static_site_generator: nuxt
       - name: Restore cache
         uses: actions/cache@v4
         with:
           path: |
+            dist
             .nuxt
-            node_modules
-          key: ${{ runner.os }}-nuxt-build-${{ hashFiles('**/package-lock.json', '**/bun.lockb', '**/bun.lock') }}
+          key: ${{ runner.os }}-nuxt-build-${{ hashFiles('dist') }}
           restore-keys: |
             ${{ runner.os }}-nuxt-build-
       - name: Install dependencies
