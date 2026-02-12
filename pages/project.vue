@@ -1,9 +1,14 @@
+<script setup lang="ts">
+const route = useRoute();
+const { data: doc } = await useAsyncData(route.path, () => {
+  return queryCollection("content").path(route.path).first();
+});
+</script>
+
 <template>
-    <h1 class="text-3xl font-bold">Project</h1>
-    <div class="space-y-4 mt-2">
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, ullam dolor? Magnam tenetur blanditiis,
-            placeat at quod quo possimus quia mollitia minima tempore fugit, laboriosam fugiat veniam vero laborum quas!
-        </p>
-    </div>
+  <h1 class="text-3xl font-bold">Projects</h1>
+  <div class="space-y-4 mt-2 [&_a]:underline [&_a:hover]:text-primary">
+    <ContentRenderer v-if="doc" :value="doc" />
+    <div v-else>Loading...</div>
+  </div>
 </template>

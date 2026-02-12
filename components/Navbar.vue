@@ -8,6 +8,7 @@ const route = useRoute();
 const links = [
   { path: "/about", label: "About" },
   { path: "/project", label: "Project" },
+  { path: "/experience", label: "Experience" },
 ];
 
 // Get the color mode from the theme
