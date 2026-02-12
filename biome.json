@@ -1,6 +1,6 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.1.3/schema.json",
-  "extends": ["/Users/caturbgs/code/biome.json"],
+  "$schema": "https://biomejs.dev/schemas/2.3.14/schema.json",
+  "extends": ["/Users/caturbgs/code/xurya/biome.json"],
   "overrides": [
     {
       "includes": ["**/*.svelte", "**/*.astro", "**/*.vue"],
