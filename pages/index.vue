@@ -3,107 +3,152 @@ import { Github, Linkedin } from "lucide-vue-next";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-const { data: projectsDoc } = await useAsyncData("projects-home", () => {
-  return queryContent("/projects").findOne();
+// Using Nuxt Content v3 queryCollection
+const { data: projectDoc } = await useAsyncData("project-home", () => {
+  return queryCollection("content").path("/project").first();
 });
-const projects = computed(() => projectsDoc.value?.projects || []);
 
-const { data: experiencesDoc } = await useAsyncData("experiences-home", () => {
-  return queryContent("/experience").findOne();
+const { data: experienceDoc } = await useAsyncData("experience-home", () => {
+  return queryCollection("content").path("/experience").first();
 });
-const experiences = computed(() => experiencesDoc.value?.experience || []);
+
+// Since the data is in MDC components, we might not be able to easily slice them here
+// if they are not in frontmatter. For now, we'll just show the titles or links
+// if we can extract them, or just point to the full pages.
+// Rauch and Shudin styles prefer simple links to sections.
 </script>
 
 <template>
-  <div class="space-y-8">
+  <div class="space-y-16 pb-20">
     <!-- Hero Section -->
-    <div class="text-center space-y-4">
-      <h1 class="text-4xl font-bold">Catur Bagaskara</h1>
-      <p class="text-xl text-muted-foreground">Senior Software Developer at Xurya Daya Indonesia</p>
-      <p class="max-w-2xl mx-auto">
-        A dedicated Full Stack Developer with a deep passion for website development. Constantly seeking new ways to improve my skills and have honed my expertise in website applications.
-      </p>
-      <div class="flex justify-center space-x-4">
-        <a href="https://www.linkedin.com/in/caturbagas" target="_blank" rel="noopener noreferrer">
-          <Button variant="outline">
-            <Linkedin class="mr-2 h-4 w-4" />
-            LinkedIn
-          </Button>
+    <section class="space-y-6 pt-10">
+      <div class="space-y-2">
+        <h1 class="text-4xl font-bold tracking-tight">Catur Bagaskara</h1>
+        <p class="text-lg text-muted-foreground font-medium">
+          Senior Software Developer at <span class="text-foreground">Xurya Daya Indonesia</span>
+        </p>
+      </div>
+
+      <div class="max-w-2xl text-base leading-relaxed text-muted-foreground">
+        <p>
+          Dedicated Full Stack Developer with a passion for building clean, efficient, and user-centric applications.
+          Currently focused on renewable energy solutions and optimizing large-scale systems.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-4 pt-2">
+        <a
+          href="https://github.com/caturbgs"
+          target="_blank"
+          rel="noopener"
+          class="text-muted-foreground hover:text-foreground transition-colors"
+        >
+          <Github class="size-5" />
+          <span class="sr-only">GitHub</span>
         </a>
-        <a href="https://github.com/caturbgs" target="_blank" rel="noopener noreferrer">
-          <Button variant="outline">
-            <Github class="mr-2 h-4 w-4" />
-            GitHub
-          </Button>
+        <a
+          href="https://linkedin.com/in/caturbagas"
+          target="_blank"
+          rel="noopener"
+          class="text-muted-foreground hover:text-foreground transition-colors"
+        >
+          <Linkedin class="size-5" />
+          <span class="sr-only">LinkedIn</span>
+        </a>
+        <a
+          href="https://x.com/gitgudguy_"
+          target="_blank"
+          rel="noopener"
+          class="text-muted-foreground hover:text-foreground transition-colors"
+        >
+          <Twitter class="size-5" />
+          <span class="sr-only">Twitter</span>
+        </a>
+        <a
+          href="https://instagram.com/caturbgs_"
+          target="_blank"
+          rel="noopener"
+          class="text-muted-foreground hover:text-foreground transition-colors"
+        >
+          <Instagram class="size-5" />
+          <span class="sr-only">Instagram</span>
         </a>
       </div>
-    </div>
+    </section>
 
-    <!-- About Section -->
-    <div class="space-y-4">
-      <h2 class="text-2xl font-bold">About Me</h2>
-      <p class="text-muted-foreground">
-        I'm a Software Developer based in Depok, West Java. I love to build applications, whether it's a logic-heavy REST API or a beautifully designed website. I'm passionate about both frontend and backend development.
+    <!-- Brief About -->
+    <section class="space-y-4">
+      <h2 class="text-sm font-semibold uppercase tracking-wider text-muted-foreground">About</h2>
+      <p class="text-muted-foreground leading-relaxed">
+        Based in Depok, West Java. I love building everything from logic-heavy REST APIs to beautifully designed
+        frontend experiences. My expertise lies in systems design, Go, and Vue.js.
       </p>
-      <NuxtLink to="/about">
-        <Button variant="link" class="p-0">Read more about me &rarr;</Button>
+      <NuxtLink
+        to="/about"
+        class="inline-flex items-center text-sm font-medium hover:underline decoration-1 underline-offset-4"
+      >
+        Read more about my journey <span class="ml-1">→</span>
       </NuxtLink>
-    </div>
+    </section>
 
-    <!-- Skills Section -->
-    <div class="space-y-4">
-      <h2 class="text-2xl font-bold">Skills</h2>
-      <div class="flex flex-wrap gap-2">
-        <div class="bg-primary text-primary-foreground rounded-md px-3 py-1 text-sm">Systems Design</div>
-        <div class="bg-primary text-primary-foreground rounded-md px-3 py-1 text-sm">Go (Programming Language)</div>
-        <div class="bg-primary text-primary-foreground rounded-md px-3 py-1 text-sm">HashiCorp Vault</div>
-        <div class="bg-secondary text-secondary-foreground rounded-md px-3 py-1 text-sm">Vue.js</div>
-        <div class="bg-secondary text-secondary-foreground rounded-md px-3 py-1 text-sm">Nuxt</div>
-        <div class="bg-secondary text-secondary-foreground rounded-md px-3 py-1 text-sm">Backend</div>
-        <div class="bg-secondary text-secondary-foreground rounded-md px-3 py-1 text-sm">Frontend</div>
-        <div class="bg-secondary text-secondary-foreground rounded-md px-3 py-1 text-sm">PHP</div>
-      </div>
-    </div>
-
-    <!-- Recent Projects -->
-    <div class="space-y-4" v-if="projects && projects.length">
-      <h2 class="text-2xl font-bold">Recent Projects</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <Card v-for="project in projects.slice(0, 2)" :key="project._path">
-          <CardHeader>
-            <CardTitle>{{ project.title }}</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p>{{ project.description }}</p>
-            <div class="mt-4 flex flex-wrap gap-2">
-              <span v-for="tech in project.technologies" :key="tech" class="bg-secondary text-secondary-foreground rounded-md px-2 py-1 text-xs">
-                {{ tech }}
-              </span>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-       <NuxtLink to="/project">
-        <Button variant="link" class="p-0">View all projects &rarr;</Button>
-      </NuxtLink>
-    </div>
-
-     <!-- Experience Section -->
-    <div class="space-y-4" v-if="experiences && experiences.length">
-      <h2 class="text-2xl font-bold">Work Experience</h2>
-        <Card v-for="experience in experiences.slice(0, 2)" :key="experience.company + experience.title">
-            <CardHeader>
-                <CardTitle>{{ experience.title }}</CardTitle>
-                <p class="text-sm text-muted-foreground">{{ experience.company }} | {{ experience.period }}</p>
-            </CardHeader>
-            <CardContent>
-                <p>{{ experience.description }}</p>
-            </CardContent>
-        </Card>
-        <NuxtLink to="/experience">
-            <Button variant="link" class="p-0">View all experiences &rarr;</Button>
+    <!-- Sections: We'll show links to the full pages to keep it minimalist -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <section class="space-y-4">
+        <h2 class="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Work</h2>
+        <div class="space-y-1">
+          <p class="text-sm text-muted-foreground">Present</p>
+          <p class="font-medium">Senior Software Developer at Xurya</p>
+        </div>
+        <div class="space-y-1">
+          <p class="text-sm text-muted-foreground">2022 — 2023</p>
+          <p class="font-medium text-muted-foreground">Software Developer at Xurya</p>
+        </div>
+        <NuxtLink
+          to="/experience"
+          class="inline-flex items-center text-sm font-medium hover:underline decoration-1 underline-offset-4 pt-2"
+        >
+          View all experience <span class="ml-1">→</span>
         </NuxtLink>
+      </section>
+
+      <section class="space-y-4">
+        <h2 class="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Projects</h2>
+        <ul class="space-y-4">
+          <li>
+            <a href="#" class="group block">
+              <span class="font-medium group-hover:underline decoration-1 underline-offset-4"
+                >Rooftop Solar Solutions</span
+              >
+              <p class="text-sm text-muted-foreground line-clamp-1">Pioneering software for renewable energy.</p>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="group block">
+              <span class="font-medium group-hover:underline decoration-1 underline-offset-4">KESAN App</span>
+              <p class="text-sm text-muted-foreground line-clamp-1">Family health and safety application.</p>
+            </a>
+          </li>
+        </ul>
+        <NuxtLink
+          to="/project"
+          class="inline-flex items-center text-sm font-medium hover:underline decoration-1 underline-offset-4 pt-2"
+        >
+          View all projects <span class="ml-1">→</span>
+        </NuxtLink>
+      </section>
     </div>
 
+    <!-- Skills (Minimalist) -->
+    <section class="space-y-4">
+      <h2 class="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Skills & Stack</h2>
+      <div class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
+        <span>Go</span>
+        <span>Vue.js / Nuxt</span>
+        <span>Systems Design</span>
+        <span>PHP / Laravel</span>
+        <span>PostgreSQL</span>
+        <span>Docker / K8s</span>
+      </div>
+    </section>
   </div>
 </template>

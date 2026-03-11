@@ -1,14 +1,28 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.3.14/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.4.6/schema.json",
   "extends": ["/Users/caturbgs/code/xurya/biome.json"],
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
   "overrides": [
     {
       "includes": ["**/*.svelte", "**/*.astro", "**/*.vue"],
       "linter": {
+        "domains": {
+          "vue": "all"
+        },
         "rules": {
           "style": {
             "useConst": "off",
             "useImportType": "off",
+            "useFilenamingConvention": {
+              "level": "warn",
+              "options": {
+                "filenameCases": ["kebab-case", "export", "PascalCase"]
+              }
+            },
             "noParameterAssign": "error",
             "useAsConstAssertion": "error",
             "useDefaultParameterLast": "error",
@@ -21,15 +35,21 @@
             "noUselessElse": "error"
           },
           "correctness": {
-            "noUnusedFunctionParameters": "error",
+            "noUnusedFunctionParameters": "off",
             "noUnusedImports": "off",
             "noUnusedVariables": "off"
+          },
+          "nursery": {
+            "useSortedClasses": {
+              "level": "warn",
+              "options": {
+                "attributes": ["classList", "class", "className"],
+                "functions": ["clsx", "cva", "tw", "tw.*", "cn"]
+              }
+            },
+            "useVueVForKey": "error",
+            "noVueVIfWithVFor": "error"
           }
-        }
-      },
-      "javascript": {
-        "formatter": {
-          "quoteStyle": "double"
         }
       }
     }

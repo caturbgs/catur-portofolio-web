@@ -6,9 +6,17 @@ const { data: doc } = await useAsyncData(route.path, () => {
 </script>
 
 <template>
-  <h1 class="text-3xl font-bold">Projects</h1>
-  <div class="space-y-4 mt-2 [&_a]:underline [&_a:hover]:text-primary">
-    <ContentRenderer v-if="doc" :value="doc" />
-    <div v-else>Loading...</div>
+  <div class="space-y-12 py-10">
+    <div class="space-y-4">
+      <h1 class="text-4xl font-bold tracking-tight">Projects</h1>
+      <p class="text-muted-foreground text-lg max-w-2xl leading-relaxed">
+        A selection of my recent work, ranging from large-scale enterprise systems to experimental web applications.
+      </p>
+    </div>
+
+    <div class="divide-y divide-muted/10 border-t border-muted/10">
+      <ContentRenderer v-if="doc" :value="doc" />
+      <div v-else class="py-20 text-center text-muted-foreground italic">Loading projects...</div>
+    </div>
   </div>
 </template>
