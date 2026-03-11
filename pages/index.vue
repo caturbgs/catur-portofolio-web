@@ -21,10 +21,10 @@ const { data: experienceDoc } = await useAsyncData("experience-home", () => {
 <template>
   <div class="space-y-16 pb-20">
     <!-- Hero Section -->
-    <section class="space-y-6 pt-10">
+    <section class="space-y-6 pt-6 md:pt-10">
       <div class="space-y-2">
-        <h1 class="text-4xl font-bold tracking-tight">Catur Bagaskara</h1>
-        <p class="text-lg text-muted-foreground font-medium">
+        <h1 class="text-3xl md:text-4xl font-bold tracking-tight">Catur Bagaskara</h1>
+        <p class="text-base md:text-lg text-muted-foreground font-medium">
           Senior Software Developer at <span class="text-foreground">Xurya Daya Indonesia</span>
         </p>
       </div>

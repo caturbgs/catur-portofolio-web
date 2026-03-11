@@ -112,7 +112,10 @@ function handleChangeTheme() {
         {{ link.label }}
       </p>
       <NuxtLink v-else :to="link.path">
-        <button class="text-sm font-medium transition-colors hover:text-foreground text-muted-foreground px-2 py-1">
+        <button
+          type="button"
+          class="text-sm font-medium transition-colors hover:text-foreground text-muted-foreground px-2 py-1"
+        >
           {{ link.label }}
         </button>
       </NuxtLink>
@@ -123,6 +126,7 @@ function handleChangeTheme() {
       <Tooltip>
         <TooltipTrigger as-child>
           <button
+            type="button"
             class="text-muted-foreground hover:text-foreground transition-colors p-1 group"
             @click="handleChangeTheme()"
           >
