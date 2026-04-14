@@ -121,7 +121,7 @@ const { data: experienceDoc } = await useAsyncData("experience-home", () => {
         <div class="space-y-10">
           <NuxtLink to="/project" class="group block space-y-2">
             <p class="text-[10px] font-bold font-mono uppercase tracking-widest text-muted-foreground/40">
-              Solar Energy
+              Renewable Energy
             </p>
             <div>
               <h3 class="font-bold text-lg group-hover:text-primary transition-colors flex items-center">
@@ -129,19 +129,19 @@ const { data: experienceDoc } = await useAsyncData("experience-home", () => {
                 <span class="ml-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all">→</span>
               </h3>
               <p class="text-sm text-muted-foreground font-medium leading-relaxed">
-                Pioneering software for renewable energy management.
+                Pioneering software for rooftop solar power solutions in Indonesia.
               </p>
             </div>
           </NuxtLink>
           <NuxtLink to="/project" class="group block space-y-2">
-            <p class="text-[10px] font-bold font-mono uppercase tracking-widest text-muted-foreground/40">Healthcare</p>
+            <p class="text-[10px] font-bold font-mono uppercase tracking-widest text-muted-foreground/40">Mobility</p>
             <div>
               <h3 class="font-bold text-lg group-hover:text-primary transition-colors flex items-center">
-                KESAN App
+                MOVIC (Car Rental & IoT)
                 <span class="ml-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all">→</span>
               </h3>
               <p class="text-sm text-muted-foreground font-medium leading-relaxed">
-                A modern approach to family health and safety.
+                Developed an IoT-integrated car rental application for Astra Digital International.
               </p>
             </div>
           </NuxtLink>

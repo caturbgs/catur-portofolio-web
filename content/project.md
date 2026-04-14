@@ -11,6 +11,7 @@ description: 'Catur Bagaskara is a Senior Software Developer at Xurya Daya Indon
     - Vue.js
     - Node.js
     - Redis
+    - Docker
     - Apache Kafka
     - Systems Design
     - Google Cloud Platform
