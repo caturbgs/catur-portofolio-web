@@ -1,19 +1,19 @@
 ---
 title: 'Catur Bagaskara'
-description: 'Catur Bagaskara is the Fullstack Developer of Xurya Daya Indonesia.'
+description: 'Catur Bagaskara is a Senior Software Developer at Xurya Daya Indonesia.'
 ---
 
 ::project-card
 ---
   title: Rooftop Solar Power Solutions
-  description: Developed pioneering software for rooftop solar power solutions, contributing to the renewable energy sector in Indonesia. My role are lead the Frontend team, by doing so i got involved designing and implementing new system, optimizing existing system performance, ensuring cost-effectiveness, and got direct reports into supervisor.
+  description: Lead the Frontend team in developing pioneering software for rooftop solar power solutions in Indonesia. Architected and implemented critical systems, optimized performance, and ensured cost-effectiveness while collaborating directly with leadership to drive renewable energy innovation.
   technologies:
     - Vue.js
     - Node.js
     - Redis
     - Apache Kafka
     - Systems Design
-    - Google Cloud Project
+    - Google Cloud Platform
     - Firebase
     - Google BigQuery
     - Google Dataform
@@ -26,7 +26,7 @@ description: 'Catur Bagaskara is the Fullstack Developer of Xurya Daya Indonesia
 ::project-card
 ---
   title: Business Process Apps (Finance, Supply Chain, and Inventory)
-  description: On my second professional job, i had opportunity to worked on vOffice Indonesia as one of the pioneer virtual offices, workspaces, meeting rooms provider in Indonesia. From day one I got task to rewrite the old internal system into newer architecture that leading to cost cutting and faster development.
+  description: Spearheaded the modernization of internal systems at vOffice, a leading virtual office provider in Indonesia. Redesigned legacy architecture to enhance development velocity and significantly reduce operational costs through more efficient resource management.
   technologies:
     - ReactJS
     - Node.js
@@ -38,10 +38,11 @@ description: 'Catur Bagaskara is the Fullstack Developer of Xurya Daya Indonesia
 
 ::project-card
 ---
-  title: MOVIC (Car Rental)
-  description: On my last journey on my first company, i got transfered again to Astra Digital International. We working on creating the Car Rental apps integrated with IoT. This project allowed me to work with broader people inside the project, as we doing field project. This experience allowed me to work on large-scale applications and collaborate with various stakeholders.
+  title: MOVIC (Car Rental & IoT)
+  description: Developed an IoT-integrated car rental application for Astra Digital International. Gained extensive experience in large-scale application development and cross-functional collaboration while working closely with stakeholders during field implementations.
   technologies:
     - Node.js
+    - IoT Integration
   imageUrl: https://movic.id/assets/img/logo.png
   url: https://movic.id
 ---
@@ -50,7 +51,7 @@ description: 'Catur Bagaskara is the Fullstack Developer of Xurya Daya Indonesia
 ::project-card
 ---
   title: Nationaal Werknemer Plan
-  description: I had the opportunity to work on the Nationaal Werknemer Plan, an international project based in the Netherlands. I was tasked to slicing UI into responsive website app. This experience allowed me to work on large-scale applications and collaborate with various stakeholders.
+  description: Contributed to an international initiative based in the Netherlands, transforming complex UI designs into a highly responsive web application. Ensured a seamless user experience across a global platform while adhering to strict performance standards.
   technologies:
     - ReactJS
     - TailwindCSS
@@ -62,11 +63,11 @@ description: 'Catur Bagaskara is the Fullstack Developer of Xurya Daya Indonesia
 ::project-card
 ---
   title: KESAN (Tanya Kiai feature)
-  description: This project was my first experience to work on Mobile Application Development. My company got partnered to KESAN, as one of the biggest Islamic Activity Tracker Apps in Indonesia. I was tasked to implement the Mobile Chat Room feature that very helpful to be communicate during Covid-19 pandemic era. The experience is fun because during the development we directly got the talks with the CEO itself.
+  description: Developed a high-impact mobile chat feature for KESAN, one of Indonesia's leading Islamic activity tracker apps, to facilitate essential communication during the pandemic. Collaborated directly with the CEO to refine the user experience and deliver a robust mobile solution.
   technologies:
     - Flutter
     - Golang
-    - Websocket
+    - WebSocket
   imageUrl: /catur-logo.svg
   url: https://kesan.id
 ---
@@ -74,8 +75,8 @@ description: 'Catur Bagaskara is the Fullstack Developer of Xurya Daya Indonesia
 
 ::project-card
 ---
-  title: Sejalan Movic (CMS)
-  description: On my first professional job on PT. Bangun Kreatif Abadi, I got transferred into external client for Astra Digital International, one of Indonesia's major digital initiatives to creating the Bus and Travel booking system. Beside handle the CMS, i should working on integrating from external partner API.
+  title: Sejalan Movic (CMS & Travel Booking)
+  description: Engineered a comprehensive Bus and Travel booking system for Astra Digital International. Focused on managing CMS development and integrating complex external partner APIs to ensure seamless data flow across multiple digital platforms.
   technologies:
     - ReactJS
     - Node.js
@@ -90,7 +91,7 @@ description: 'Catur Bagaskara is the Fullstack Developer of Xurya Daya Indonesia
 ::project-card
 ---
   title: Job Search Application UI
-  description: On the same place during my internship, I got another task to transformed a designer's mockup into a fully functional UI for a job search application. This project honed my frontend development skills and my ability to bring a design to life.
+  description: Transformed intricate designer mockups into a fully functional UI for a specialized job search application. Focused on bringing high-fidelity designs to life while refining frontend development practices and user interface performance.
   technologies:
     - PHP
     - HTML
@@ -104,7 +105,7 @@ description: 'Catur Bagaskara is the Fullstack Developer of Xurya Daya Indonesia
 ::project-card
 ---
   title: CMS Application
-  description: During my internship at Smart Computerindo, I designed and built a Content Management System (CMS) from the ground up. This project gave me a strong sense of ownership and a deep understanding of application architecture.
+  description: Engineered a custom Content Management System (CMS) from the ground up. This project provided a foundational understanding of application architecture and end-to-end development, from database design to frontend implementation.
   technologies:
     - PHP
     - Laravel
@@ -115,4 +116,4 @@ description: 'Catur Bagaskara is the Fullstack Developer of Xurya Daya Indonesia
 ---
 ::
 
-Here are some of the projects I've worked on.
+Here is a selection of the projects I have brought to life.
