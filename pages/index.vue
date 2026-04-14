@@ -25,42 +25,42 @@ const { data: experienceDoc } = await useAsyncData("experience-home", () => {
       </div>
 
       <div class="flex items-center gap-6 pt-4">
-        <a
-          href="https://github.com/caturbgs"
+        <NuxtLink
+          to="https://github.com/caturbgs"
           target="_blank"
           rel="noopener"
           class="text-muted-foreground hover:text-primary transition-all hover:scale-110"
         >
           <Github class="size-6" />
           <span class="sr-only">GitHub</span>
-        </a>
-        <a
-          href="https://linkedin.com/in/caturbagas"
+        </NuxtLink>
+        <NuxtLink
+          to="https://linkedin.com/in/caturbagas"
           target="_blank"
           rel="noopener"
           class="text-muted-foreground hover:text-primary transition-all hover:scale-110"
         >
           <Linkedin class="size-6" />
           <span class="sr-only">LinkedIn</span>
-        </a>
-        <a
-          href="https://x.com/gitgudguy_"
+        </NuxtLink>
+        <NuxtLink
+          to="https://x.com/gitgudguy_"
           target="_blank"
           rel="noopener"
           class="text-muted-foreground hover:text-primary transition-all hover:scale-110"
         >
           <Twitter class="size-6" />
           <span class="sr-only">Twitter</span>
-        </a>
-        <a
-          href="https://instagram.com/caturbgs_"
+        </NuxtLink>
+        <NuxtLink
+          to="https://instagram.com/caturbgs_"
           target="_blank"
           rel="noopener"
           class="text-muted-foreground hover:text-primary transition-all hover:scale-110"
         >
           <Instagram class="size-6" />
           <span class="sr-only">Instagram</span>
-        </a>
+        </NuxtLink>
       </div>
     </section>
 
@@ -119,7 +119,7 @@ const { data: experienceDoc } = await useAsyncData("experience-home", () => {
       <section class="space-y-8">
         <h2 class="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground/60">Featured Projects</h2>
         <div class="space-y-10">
-          <a href="#" class="group block space-y-2">
+          <NuxtLink to="/project" class="group block space-y-2">
             <p class="text-[10px] font-bold font-mono uppercase tracking-widest text-muted-foreground/40">
               Solar Energy
             </p>
@@ -132,8 +132,8 @@ const { data: experienceDoc } = await useAsyncData("experience-home", () => {
                 Pioneering software for renewable energy management.
               </p>
             </div>
-          </a>
-          <a href="#" class="group block space-y-2">
+          </NuxtLink>
+          <NuxtLink to="/project" class="group block space-y-2">
             <p class="text-[10px] font-bold font-mono uppercase tracking-widest text-muted-foreground/40">Healthcare</p>
             <div>
               <h3 class="font-bold text-lg group-hover:text-primary transition-colors flex items-center">
@@ -144,7 +144,7 @@ const { data: experienceDoc } = await useAsyncData("experience-home", () => {
                 A modern approach to family health and safety.
               </p>
             </div>
-          </a>
+          </NuxtLink>
         </div>
         <NuxtLink
           to="/project"

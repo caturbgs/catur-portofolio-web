@@ -7,11 +7,19 @@ defineProps<{
   url?: string;
 }>();
 </script>
-
 <template>
   <div class="group relative py-8 transition-all">
-    <a v-if="url && url !== '#'" :href="url" target="_blank" rel="noopener noreferrer" class="absolute inset-0 z-10" />
+    <NuxtLink
+      v-if="url && url !== '#'"
+      :to="url"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="absolute inset-0 z-10"
+    >
+      <span class="sr-only">View {{ title }}</span>
+    </NuxtLink>
     <div class="flex flex-col md:flex-row md:items-baseline justify-between gap-4">
+      ...
       <div class="space-y-1 flex-1">
         <h3 class="text-lg font-bold tracking-tight group-hover:text-primary transition-colors flex items-center">
           {{ title }}
