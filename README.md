@@ -1,22 +1,31 @@
-# Nuxt 3 Minimal Starter
+# Catur Bagaskara Portfolio
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A minimalist, high-performance portfolio built with Nuxt 3, Tailwind CSS, and Shadcn Vue.
+
+Inspired by the clean, typography-focused designs of [rauchg.com](https://rauchg.com) and [shud.in](https://shud.in).
+
+## Tech Stack
+
+- **Framework**: [Nuxt 3](https://nuxt.com/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **UI Components**: [Shadcn Vue](https://www.shadcn-vue.com/)
+- **Content**: [Nuxt Content v3](https://content.nuxt.com/)
+- **Icons**: [Lucide Vue Next](https://lucide.dev/guide/packages/lucide-vue-next)
+- **Runtime**: [Bun](https://bun.sh/)
+
+## Features
+
+- **Minimalist Design**: Focused on typography and readability.
+- **Dark Mode**: Integrated with `view-transition-api` for smooth transitions.
+- **Responsive**: Optimized for both mobile and desktop experiences.
+- **Sticky Header**: Modern header with backdrop blur effect.
+- **Dynamic Content**: Powered by Nuxt Content for easy updates.
 
 ## Setup
 
 Make sure to install the dependencies:
 
 ```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
 bun install
 ```
 
@@ -25,16 +34,6 @@ bun install
 Start the development server on `http://localhost:3000`:
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
 bun run dev
 ```
 
@@ -43,33 +42,11 @@ bun run dev
 Build the application for production:
 
 ```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
 bun run build
 ```
 
 Locally preview production build:
 
 ```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
 bun run preview
 ```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

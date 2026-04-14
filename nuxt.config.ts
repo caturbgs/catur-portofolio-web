@@ -23,7 +23,11 @@ export default defineNuxtConfig({
     baseURL: "/catur-portofolio-web/",
     head: {
       link: [
-        { rel: "icon", type: "image/x-icon", href: "/catur-portofolio-web/favicon.ico" },
+        {
+          rel: "icon",
+          type: "image/x-icon",
+          href: "/catur-portofolio-web/favicon.ico",
+        },
         { rel: "manifest", href: "/catur-portofolio-web/site.webmanifest" },
       ],
       meta: [{ name: "theme-color", content: "#ffffff" }],

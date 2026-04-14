@@ -1,85 +1,116 @@
 ---
 title: 'Catur Bagaskara'
-description: 'Catur Bagaskara is the Fullstack Developer of Xurya Daya Indonesia.'
+description: 'Catur Bagaskara is a Senior Software Developer at Xurya Daya Indonesia.'
 ---
 
 ::project-card
 ---
   title: Rooftop Solar Power Solutions
-  description: Developed pioneering software for rooftop solar power solutions, contributing to the renewable energy sector in Indonesia. My role involved designing and implementing new features, optimizing system performance, and ensuring cost-effectiveness.
+  description: Lead the Frontend team in developing pioneering software for rooftop solar power solutions in Indonesia. Architected and implemented critical systems, optimized performance, and ensured cost-effectiveness while collaborating directly with leadership to drive renewable energy innovation.
   technologies:
-    - Go
-    - Systems Design
     - Vue.js
-    - Backend
-    - Frontend
-  imageUrl: /catur-logo.svg
-  url: #
+    - Node.js
+    - Redis
+    - Apache Kafka
+    - Systems Design
+    - Google Cloud Platform
+    - Firebase
+    - Google BigQuery
+    - Google Dataform
+    - Google Workflows
+  imageUrl: https://storage.googleapis.com/xurya-app-files/xurya-web/xurya-logo-color.webp
+  url: https://xurya.com
 ---
 ::
 
 ::project-card
 ---
-  title: KESAN (Keluarga Sehat dan Aman)
-  description: As part of my work with PT Bangun Kreatif Abadi, I contributed to the development of the KESAN application, an external project focused on family health and safety. This involved both backend and frontend development tasks.
+  title: Business Process Apps (Finance, Supply Chain, and Inventory)
+  description: Spearheaded the modernization of internal systems at vOffice, a leading virtual office provider in Indonesia. Redesigned legacy architecture to enhance development velocity and significantly reduce operational costs through more efficient resource management.
   technologies:
-    - Backend
-    - Frontend
-  imageUrl: /catur-logo.svg
-  url: #
+    - ReactJS
+    - Node.js
+    - PHP
+  imageUrl: https://voffice.co.id/img/global/logo.png
+  url: https://voffice.co.id
 ---
 ::
 
 ::project-card
 ---
-  title: Astra Digital International Project
-  description: I was involved in a significant project for Astra Digital International, one of Indonesia's major digital initiatives. This experience allowed me to work on large-scale applications and collaborate with various stakeholders.
+  title: MOVIC (Car Rental & IoT)
+  description: Developed an IoT-integrated car rental application for Astra Digital International. Gained extensive experience in large-scale application development and cross-functional collaboration while working closely with stakeholders during field implementations.
   technologies:
-    - Backend
-    - Frontend
-  imageUrl: /catur-logo.svg
-  url: #
+    - Node.js
+    - IoT Integration
+  imageUrl: https://movic.id/assets/img/logo.png
+  url: https://movic.id
 ---
 ::
 
 ::project-card
 ---
   title: Nationaal Werknemer Plan
-  description: I had the opportunity to work on the Nationaal Werknemer Plan, an international project based in the Netherlands. This project broadened my experience in developing applications for a global audience.
+  description: Contributed to an international initiative based in the Netherlands, transforming complex UI designs into a highly responsive web application. Ensured a seamless user experience across a global platform while adhering to strict performance standards.
   technologies:
-    - Backend
-    - Frontend
+    - ReactJS
+    - TailwindCSS
   imageUrl: /catur-logo.svg
-  url: #
+  url: https://garindo.nl/en/project/nationaal-werknemer-plan
 ---
 ::
 
 ::project-card
 ---
-  title: CMS Application
-  description: During my internship at Smart Computerindo, I designed and built a Content Management System (CMS) from the ground up. This project gave me a strong sense of ownership and a deep understanding of application architecture.
+  title: KESAN (Tanya Kiai feature)
+  description: Developed a high-impact mobile chat feature for KESAN, one of Indonesia's leading Islamic activity tracker apps, to facilitate essential communication during the pandemic. Collaborated directly with the CEO to refine the user experience and deliver a robust mobile solution.
   technologies:
-    - PHP
-    - JavaScript
-    - HTML
-    - CSS
+    - Flutter
+    - Golang
+    - WebSocket
   imageUrl: /catur-logo.svg
-  url: #
+  url: https://kesan.id
+---
+::
+
+::project-card
+---
+  title: Sejalan Movic (CMS & Travel Booking)
+  description: Engineered a comprehensive Bus and Travel booking system for Astra Digital International. Focused on managing CMS development and integrating complex external partner APIs to ensure seamless data flow across multiple digital platforms.
+  technologies:
+    - ReactJS
+    - Node.js
+    - Elasticsearch
+    - Redis
+    - PostgreSQL
+  imageUrl: https://sejalan.movic.id/assets/img/logo/logo.png
+  url: https://sejalan.movic.id
 ---
 ::
 
 ::project-card
 ---
   title: Job Search Application UI
-  description: I transformed a designer's mockup into a fully functional UI for a job search application. This project honed my frontend development skills and my ability to bring a design to life.
+  description: Transformed intricate designer mockups into a fully functional UI for a specialized job search application. Focused on bringing high-fidelity designs to life while refining frontend development practices and user interface performance.
   technologies:
     - PHP
-    - JavaScript
     - HTML
     - CSS
-    - UI/UX
-  imageUrl: /catur-logo.svg
-  url: #
+  imageUrl: https://info.smartcomputerindo.com/images/logo.png
+  url: https://info.smartcomputerindo.com
 ---
+::
 
-Here are some of the projects I've worked on.
+::project-card
+---
+  title: CMS Application
+  description: Engineered a custom Content Management System (CMS) from the ground up. This project provided a foundational understanding of application architecture and end-to-end development, from database design to frontend implementation.
+  technologies:
+    - PHP
+    - Laravel
+    - HTML
+    - CSS
+  imageUrl: https://info.smartcomputerindo.com/images/logo.png
+  url: https://info.smartcomputerindo.com
+---
+::

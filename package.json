@@ -1,5 +1,6 @@
 {
-  "name": "nuxt-app",
+  "version": "1.1.0",
+  "name": "catur-portofolio-web",
   "private": true,
   "type": "module",
   "scripts": {
@@ -8,12 +9,12 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "lint": "bunx biome lint",
-    "lint:safe": "bunx biome lint --write",
-    "lint:unsafe": "bunx biome lint --write --unsafe",
-    "format": "bunx biome format --write",
-    "format:lint:unsafe": "bunx biome check --write --unsafe",
-    "format:lint:safe": "bunx biome check --write"
+    "lint": "bunx --bun biome lint",
+    "lint:safe": "bunx --bun biome lint --write",
+    "lint:unsafe": "bunx --bun biome lint --write --unsafe",
+    "format": "bunx --bun biome format --write",
+    "format:lint:unsafe": "bunx --bun biome check --write --unsafe",
+    "format:lint:safe": "bunx --bun biome check --write"
   },
   "dependencies": {
     "@nuxt/image": "^1.8.1",
@@ -37,7 +38,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.3.14",
+    "@biomejs/biome": "2.4.6",
     "@nuxt/content": "^3.7.1",
     "@nuxtjs/google-fonts": "^3.2.0",
     "typescript": "^5.6.2"

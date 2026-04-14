@@ -1,31 +1,41 @@
 <script setup lang="ts">
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-
 defineProps<{
-  title: string
-  description: string
-  technologies: string[]
-  imageUrl?: string
-  url?: string
-}>()
+  title: string;
+  description: string;
+  technologies: string[];
+  imageUrl?: string;
+  url?: string;
+}>();
 </script>
 
 <template>
-  <Card>
-    <CardHeader>
-      <CardTitle>{{ title }}</CardTitle>
-    </CardHeader>
-    <CardContent>
-      <p class="text-sm text-muted-foreground">{{ description }}</p>
-      <div class="mt-4 flex flex-wrap gap-2">
-        <span v-for="tech in technologies" :key="tech" class="bg-secondary text-secondary-foreground rounded-md px-2 py-1 text-xs">
+  <div class="group relative py-12 transition-all border-b border-muted/10 last:border-0">
+    <div class="space-y-4">
+      <!-- Title Area -->
+      <div class="flex items-center justify-between gap-4">
+        <NuxtLink v-if="url && url !== '#'" :to="url" target="_blank" rel="noopener noreferrer">
+          <h3 class="text-2xl font-bold tracking-tight group-hover:text-primary transition-colors flex items-center">
+            {{ title }}
+            <span class="inline-block ml-3 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all"
+              >→</span
+            >
+          </h3>
+        </NuxtLink>
+      </div>
+
+      <!-- Description Area -->
+      <p class="text-muted-foreground text-base leading-relaxed max-w-2xl font-medium">{{ description }}</p>
+
+      <!-- Technologies Area - Subtle and secondary -->
+      <div class="flex flex-wrap gap-x-6 gap-y-2 pt-2">
+        <span
+          v-for="tech in technologies"
+          :key="tech"
+          class="text-[12px] font-bold font-mono uppercase tracking-[0.2em] text-muted-foreground/50 hover:text-muted-foreground/80 transition-colors cursor-default"
+        >
           {{ tech }}
         </span>
       </div>
-      <a v-if="url && url !== '#'" :href="url" target="_blank" rel="noopener noreferrer" class="mt-4 block">
-        <Button variant="outline" size="sm">View Project</Button>
-      </a>
-    </CardContent>
-  </Card>
+    </div>
+  </div>
 </template>
