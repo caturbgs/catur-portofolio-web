@@ -134,16 +134,14 @@ const { data: experienceDoc } = await useAsyncData("experience-home", () => {
             </div>
           </NuxtLink>
           <NuxtLink to="/project" class="group block space-y-2">
-            <p class="text-[10px] font-bold font-mono uppercase tracking-widest text-muted-foreground/40">
-              Productivity
-            </p>
+            <p class="text-[10px] font-bold font-mono uppercase tracking-widest text-muted-foreground/40">Mobility</p>
             <div>
               <h3 class="font-bold text-lg group-hover:text-primary transition-colors flex items-center">
-                Business Process Apps
+                MOVIC (Car Rental & IoT)
                 <span class="ml-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all">→</span>
               </h3>
               <p class="text-sm text-muted-foreground font-medium leading-relaxed">
-                Spearheaded the modernization of internal systems for virtual office providers.
+                Developed an IoT-integrated car rental application for Astra Digital International.
               </p>
             </div>
           </NuxtLink>
