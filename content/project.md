@@ -115,5 +115,3 @@ description: 'Catur Bagaskara is a Senior Software Developer at Xurya Daya Indon
   url: https://info.smartcomputerindo.com
 ---
 ::
-
-Here is a selection of the projects I have brought to life.
