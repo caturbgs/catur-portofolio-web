@@ -40,24 +40,24 @@ useHead({
       href: "/catur-portofolio-web/apple-touch-icon.png",
     },
   ],
-  useSeoMeta({
-    title: "Catur Bagaskara",
-    description: "Senior Software Developer based in Depok, Indonesia. Expertise in Go, Vue.js, and Systems Design.",
-    ogTitle: "Catur Bagaskara | Senior Software Developer",
-    ogDescription: "Dedicated Full Stack Developer focused on high-performance systems and renewable energy solutions.",
-    ogImage: "/catur-logo.svg", // This will be absolute-ified by Nuxt SEO via site.url
-  });
+  bodyAttrs: {
+    class: "font-sans antialiased",
+  },
+});
+
+useSeoMeta({
+  title: "Catur Bagaskara",
+  description: "Senior Software Developer based in Depok, Indonesia. Expertise in Go, Vue.js, and Systems Design.",
+  ogTitle: "Catur Bagaskara | Senior Software Developer",
+  ogDescription: "Dedicated Full Stack Developer focused on high-performance systems and renewable energy solutions.",
+  ogImage: "/catur-logo.svg", // This will be absolute-ified by Nuxt SEO via site.url
+});
 
 useSchemaOrg([
-    definePerson({
-      name: "Catur Bagaskara",
-      image: "/catur-logo.svg",
-      sameAs: [
-        "https://github.com/caturbgs",
-        "https://linkedin.com/in/caturbagas",
-      ],
-  ...
-
+  definePerson({
+    name: "Catur Bagaskara",
+    image: "/catur-logo.svg",
+    sameAs: ["https://github.com/caturbgs", "https://linkedin.com/in/caturbagas"],
     jobTitle: "Senior Software Developer",
     worksFor: {
       name: "Xurya Daya Indonesia",
