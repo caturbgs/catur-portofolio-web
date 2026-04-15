@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Github, Instagram, Linkedin, Twitter } from "lucide-vue-next";
+import { Github, Linkedin } from "lucide-vue-next";
 
 // Using Nuxt Content v3 queryCollection
 const { data: projectDoc } = await useAsyncData("project-home", () => {
@@ -42,24 +42,6 @@ const { data: experienceDoc } = await useAsyncData("experience-home", () => {
         >
           <Linkedin class="size-6" />
           <span class="sr-only">LinkedIn</span>
-        </NuxtLink>
-        <NuxtLink
-          to="https://x.com/gitgudguy_"
-          target="_blank"
-          rel="noopener"
-          class="text-muted-foreground hover:text-primary transition-all hover:scale-110"
-        >
-          <Twitter class="size-6" />
-          <span class="sr-only">Twitter</span>
-        </NuxtLink>
-        <NuxtLink
-          to="https://instagram.com/caturbgs_"
-          target="_blank"
-          rel="noopener"
-          class="text-muted-foreground hover:text-primary transition-all hover:scale-110"
-        >
-          <Instagram class="size-6" />
-          <span class="sr-only">Instagram</span>
         </NuxtLink>
       </div>
     </section>
