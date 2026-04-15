@@ -4,6 +4,14 @@ A minimalist, high-performance portfolio built with Nuxt 3, Tailwind CSS, and Sh
 
 Inspired by the clean, typography-focused designs of [rauchg.com](https://rauchg.com) and [shud.in](https://shud.in).
 
+## Recent Changes (v1.2.0)
+
+- **Refactor**: Re-styled the entire portfolio to a minimalist, typography-focused design inspired by `rauchg.com` and `shud.in`.
+- **Simplification**: Removed heavy UI components (Cards, etc.) in favor of clean, direct layouts.
+- **Social Media**: Focused on professional presence by limiting social links to GitHub and LinkedIn.
+- **UI Update**: Simplified Navbar and Header for a text-first experience.
+- **Content**: Migrated to Nuxt Content v3 with MDC (Markdown Component) for project and experience rendering.
+
 ## Tech Stack
 
 - **Framework**: [Nuxt 3](https://nuxt.com/)
