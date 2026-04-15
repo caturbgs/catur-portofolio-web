@@ -1,6 +1,13 @@
 <script setup lang="ts">
 import { Github, Linkedin } from "lucide-vue-next";
 
+useSeoMeta({
+  title: "Catur Bagaskara | Senior Software Developer",
+  ogTitle: "Catur Bagaskara | Senior Software Developer",
+  description:
+    "Senior Software Developer at Xurya Daya Indonesia. Passionate about Go, Vue.js, and high-performance system design.",
+});
+
 // Using Nuxt Content v3 queryCollection
 const { data: projectDoc } = await useAsyncData("project-home", () => {
   return queryCollection("content").path("/project").first();
