@@ -19,4 +19,4 @@ I think that was the motivation for me to learn how the computer works. I just l
 Besides coding, I love to traveling to a new place, cooking some foodies, and the last but not least, is playing a games! xD
 <br><br>
 
-If you interested more about me, you can check out my [LinkedIn](https://www.linkedin.com/in/caturbagas) or [GitHub](https://github.com/caturbgs) profile. I'm always open to hear from you!
+If you are interested in learning more about me, you can check out my [LinkedIn](https://www.linkedin.com/in/caturbagas) or [GitHub](https://github.com/caturbgs) profile. I'm always open to hear from you!

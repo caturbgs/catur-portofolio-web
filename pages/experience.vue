@@ -15,7 +15,7 @@ const { data: doc } = await useAsyncData(route.path, () => {
       </p>
     </div>
 
-    <div class="space-y-12 border-t border-muted/10 pt-10">
+    <div class="prose prose-neutral dark:prose-invert max-w-none border-t border-muted/10 pt-10">
       <ContentRenderer v-if="doc" :value="doc" />
       <div v-else class="py-20 text-center text-muted-foreground italic">Loading experience...</div>
     </div>

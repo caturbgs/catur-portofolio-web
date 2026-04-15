@@ -1,0 +1,6 @@
+components/ui/
+assets/css/tailwind.css
+.nuxt/
+.output/
+node_modules/
+dist/
