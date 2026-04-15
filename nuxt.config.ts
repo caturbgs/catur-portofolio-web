@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  ssr: false, // Disable server-side rendering for static deployment
+  ssr: true, // Required for SSG (Static Site Generation)
   compatibilityDate: "2024-11-03",
   devtools: {
     enabled: true,
@@ -16,12 +16,42 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "@vueuse/nuxt",
     "@nuxt/content",
+    "@nuxtjs/seo",
+    "nuxt-ai-ready",
   ],
+
+  // Site Configuration for Nuxt SEO
+  site: {
+    url: "https://caturbgs.github.io",
+    name: "Catur Bagaskara",
+    description: "Senior Software Developer specializing in Go, Vue.js, and Systems Design.",
+    defaultLocale: "en",
+  },
+
+  seo: {
+    redirectToCanonicalSiteUrl: true,
+  },
+
+  aiReady: {
+    // Zero-config by default
+  },
+
+  robots: {
+    robotsTxt: false, // Recommended when using base URL
+  },
+
+  ogImage: {
+    enabled: true,
+  },
 
   // App Config
   app: {
     baseURL: "/catur-portofolio-web/",
     head: {
+      htmlAttrs: {
+        lang: "en",
+      },
+      titleTemplate: "%s | Catur Bagaskara",
       link: [
         {
           rel: "icon",

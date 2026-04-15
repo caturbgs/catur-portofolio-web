@@ -1,4 +1,11 @@
 <script setup lang="ts">
+useSeoMeta({
+  title: "Experience | Catur Bagaskara",
+  ogTitle: "Work History & Experience | Catur Bagaskara",
+  description:
+    "Career history of Catur Bagaskara, featuring senior roles in software development and systems engineering.",
+});
+
 const route = useRoute();
 const { data: doc } = await useAsyncData(route.path, () => {
   return queryCollection("content").path(route.path).first();
