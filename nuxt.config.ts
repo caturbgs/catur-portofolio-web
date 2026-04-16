@@ -18,7 +18,6 @@ export default defineNuxtConfig({
     "@nuxt/content",
     "@nuxtjs/seo",
     "nuxt-llms",
-    "@nuxtjs/mcp-toolkit",
   ],
 
   // Site Configuration for Nuxt SEO
