@@ -24,7 +24,8 @@ export default defineNuxtConfig({
   site: {
     url: "https://caturbgs.github.io",
     name: "Catur Bagaskara",
-    description: "Senior Software Developer specializing in Go, Vue.js, and Systems Design.",
+    description:
+      "Senior Software Developer specializing in Typescript (Vue.js, ReactJS, and Node.js), Go, Flutter, and Systems Design.",
     defaultLocale: "en",
     indexable: true,
   },
