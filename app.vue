@@ -1,6 +1,5 @@
 <script setup lang="ts">
 useHead({
-  title: "Catur Bagaskara",
   meta: [
     { name: "description", content: "Senior Software Developer at Xurya Daya Indonesia" },
     { name: "viewport", content: "width=device-width, initial-scale=1" },
@@ -46,7 +45,6 @@ useHead({
 });
 
 useSeoMeta({
-  title: "Catur Bagaskara",
   description: "Senior Software Developer based in Depok, Indonesia. Expertise in Go, Vue.js, and Systems Design.",
   ogTitle: "Catur Bagaskara | Senior Software Developer",
   ogDescription: "Dedicated Full Stack Developer focused on high-performance systems and renewable energy solutions.",

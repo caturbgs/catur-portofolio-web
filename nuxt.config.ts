@@ -22,10 +22,11 @@ export default defineNuxtConfig({
 
   // Site Configuration for Nuxt SEO
   site: {
-    url: "https://caturbgs.github.io/catur-portofolio-web",
+    url: "https://caturbgs.github.io",
     name: "Catur Bagaskara",
     description: "Senior Software Developer specializing in Go, Vue.js, and Systems Design.",
     defaultLocale: "en",
+    indexable: true,
   },
 
   seo: {
@@ -51,7 +52,6 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: "en",
       },
-      titleTemplate: "%s | Catur Bagaskara",
       link: [
         {
           rel: "icon",
