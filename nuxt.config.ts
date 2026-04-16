@@ -17,7 +17,8 @@ export default defineNuxtConfig({
     "@vueuse/nuxt",
     "@nuxt/content",
     "@nuxtjs/seo",
-    "nuxt-ai-ready",
+    "nuxt-llms",
+    "@nuxtjs/mcp-toolkit",
   ],
 
   // Site Configuration for Nuxt SEO
@@ -33,8 +34,14 @@ export default defineNuxtConfig({
     redirectToCanonicalSiteUrl: true,
   },
 
-  aiReady: {
-    // Zero-config by default
+  llms: {
+    domain: "https://caturbgs.github.io/catur-portofolio-web",
+    title: "Catur Bagaskara Portfolio",
+    description: "Personal portfolio of Catur Bagaskara, a Senior Software Developer.",
+    full: {
+      title: "Catur Bagaskara Portfolio (Full Content)",
+      description: "Complete career history, projects, and technical skills for deep LLM ingestion.",
+    },
   },
 
   robots: {

@@ -7,10 +7,11 @@ All notable changes to this project will be documented in this file.
 ### Added
 - **Nuxt 4 Upgrade**: Upgraded the project to Nuxt 4.4.2 for better performance and module compatibility.
 - **Nuxt SEO Integration**: Comprehensive SEO suite with automated Sitemaps, Robots, and Schema.org.
-- **AI Discovery (Generative Engine Optimization)**: Integrated `nuxt-ai-ready` to automate AI search visibility.
+- **AI Discovery (Generative Engine Optimization)**: Integrated `nuxt-llms` for advanced AI search visibility.
   - Automatically generates `/llms.txt` and `/llms-full.txt`.
-  - Provides on-demand markdown versions of all pages for LLM ingestion.
-  - Includes AI content signals in `robots.txt`.
+  - Optimized integration with `@nuxt/content` for seamless ingestion of markdown content.
+  - Exposes raw markdown endpoints for efficient AI parsing.
+- **MCP Support**: Added `@nuxtjs/mcp-toolkit` for Model Context Protocol integration, allowing direct AI agent interaction.
 - **Structured Data**: Implemented `Person` and `WebSite` Schema.org JSON-LD in `app.vue` for better knowledge graph presence.
 - **Dynamic OpenGraph**: Configured `nuxt-og-image` with brand identity using `catur-logo.svg`.
 - **Page-Specific Meta**: Added targeted `useSeoMeta` to all main pages (Home, Projects, Experience, About).
