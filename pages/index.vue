@@ -5,7 +5,7 @@ useSeoMeta({
   title: "Catur Bagaskara | Senior Software Developer",
   ogTitle: "Catur Bagaskara | Senior Software Developer",
   description:
-    "Senior Software Developer at Xurya Daya Indonesia. Passionate about Go, Vue.js, and high-performance system design.",
+    "Senior Software Developer at Xurya Daya Indonesia. Passionate about Typescript (Vue.js, ReactJS, and Node.js), Go, Flutter, and high-performance system design.",
 });
 
 // Using Nuxt Content v3 queryCollection
@@ -59,7 +59,8 @@ const { data: experienceDoc } = await useAsyncData("experience-home", () => {
       <div class="max-w-3xl space-y-4">
         <p class="text-lg text-muted-foreground/90 leading-relaxed font-medium">
           Based in Depok, West Java. I specialize in building everything from logic-heavy REST APIs to beautifully
-          designed frontend experiences. My expertise lies in systems design, Go, and Vue.js.
+          designed frontend experiences. My expertise lies in Typescript (Vue.js, ReactJS, and Node.js), Go, Flutter,
+          and systems design.
         </p>
         <NuxtLink
           to="/about"
@@ -149,12 +150,15 @@ const { data: experienceDoc } = await useAsyncData("experience-home", () => {
     <section class="space-y-8 border-t border-muted/10 pt-16">
       <h2 class="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground/60">Expertise</h2>
       <div class="flex flex-wrap gap-x-12 gap-y-6 text-base font-bold tracking-tight text-muted-foreground/80">
-        <span class="hover:text-foreground transition-colors cursor-default">Go</span>
+        <span class="hover:text-foreground transition-colors cursor-default">Typescript</span>
         <span class="hover:text-foreground transition-colors cursor-default">Vue.js / Nuxt</span>
+        <span class="hover:text-foreground transition-colors cursor-default">ReactJS / Next</span>
+        <span class="hover:text-foreground transition-colors cursor-default">Node.js</span>
+        <span class="hover:text-foreground transition-colors cursor-default">Go</span>
+        <span class="hover:text-foreground transition-colors cursor-default">Flutter</span>
         <span class="hover:text-foreground transition-colors cursor-default">Systems Design</span>
-        <span class="hover:text-foreground transition-colors cursor-default">PostgreSQL</span>
-        <span class="hover:text-foreground transition-colors cursor-default">Docker / K8s</span>
-        <span class="hover:text-foreground transition-colors cursor-default">Cloud Infrastructure</span>
+        <span class="hover:text-foreground transition-colors cursor-default">Docker</span>
+        <span class="hover:text-foreground transition-colors cursor-default">Google Cloud Platform</span>
       </div>
     </section>
   </div>

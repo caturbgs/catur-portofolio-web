@@ -45,7 +45,8 @@ useHead({
 });
 
 useSeoMeta({
-  description: "Senior Software Developer based in Depok, Indonesia. Expertise in Go, Vue.js, and Systems Design.",
+  description:
+    "Senior Software Developer based in Depok, Indonesia. Expertise in Typescript (Vue.js, ReactJS, and Node.js), Go, Flutter, and Systems Design.",
   ogTitle: "Catur Bagaskara | Senior Software Developer",
   ogDescription: "Dedicated Full Stack Developer focused on high-performance systems and renewable energy solutions.",
   ogImage: "/catur-logo.svg", // This will be absolute-ified by Nuxt SEO via site.url
