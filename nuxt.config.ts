@@ -22,16 +22,21 @@ export default defineNuxtConfig({
 
   // Site Configuration for Nuxt SEO
   site: {
-    url: "https://caturbgs.github.io",
+    url: "https://caturbgs.github.io/catur-portofolio-web",
     name: "Catur Bagaskara",
     description:
       "Senior Software Developer specializing in Typescript (Vue.js, ReactJS, and Node.js), Go, Flutter, and Systems Design.",
     defaultLocale: "en",
     indexable: true,
+    trailingSlash: true,
   },
 
   seo: {
-    redirectToCanonicalSiteUrl: true,
+    redirectToCanonicalSiteUrl: false,
+  },
+
+  sitemap: {
+    exclude: ["/catur-portofolio-web", "/catur-portofolio-web/"],
   },
 
   llms: {
@@ -59,6 +64,7 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: "en",
       },
+      titleTemplate: "%s",
       link: [
         {
           rel: "icon",
