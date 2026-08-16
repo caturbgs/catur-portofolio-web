@@ -49,18 +49,18 @@ useSeoMeta({
     "Senior Software Developer based in Depok, Indonesia. Expertise in Typescript (Vue.js, ReactJS, and Node.js), Go, Flutter, and Systems Design.",
   ogTitle: "Catur Bagaskara | Senior Software Developer",
   ogDescription: "Dedicated Full Stack Developer focused on high-performance systems and renewable energy solutions.",
-  ogImage: "/catur-logo.svg", // This will be absolute-ified by Nuxt SEO via site.url
 });
 
 useSchemaOrg([
   definePerson({
     name: "Catur Bagaskara",
+    url: "https://caturbgs.github.io/catur-portofolio-web/",
     image: "/catur-logo.svg",
     sameAs: ["https://github.com/caturbgs", "https://linkedin.com/in/caturbagas"],
     jobTitle: "Senior Software Developer",
-    worksFor: {
+    worksFor: defineOrganization({
       name: "Xurya Daya Indonesia",
-    },
+    }),
   }),
   defineWebSite({
     name: "Catur Bagaskara Portfolio",
