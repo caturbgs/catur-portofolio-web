@@ -1,5 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import { flattenAiMarkdown } from "./lib/flatten-ai-markdown";
+
 export default defineNuxtConfig({
+  hooks: {
+    "ai-ready:page:markdown"(context) {
+      context.markdown = flattenAiMarkdown(context.markdown);
+    },
+  },
   ssr: true, // Required for SSG (Static Site Generation)
   compatibilityDate: "2024-11-03",
   devtools: {
@@ -17,7 +24,7 @@ export default defineNuxtConfig({
     "@vueuse/nuxt",
     "@nuxt/content",
     "@nuxtjs/seo",
-    "nuxt-llms",
+    "nuxt-ai-ready",
   ],
 
   // Site Configuration for Nuxt SEO
@@ -43,13 +50,29 @@ export default defineNuxtConfig({
     urls: ["/", "/about/", "/experience/", "/project/"],
   },
 
-  llms: {
-    domain: "https://caturbgs.github.io/catur-portofolio-web",
-    title: "Catur Bagaskara Portfolio",
-    description: "Personal portfolio of Catur Bagaskara, a Senior Software Developer.",
-    full: {
-      title: "Catur Bagaskara Portfolio (Full Content)",
-      description: "Complete career history, projects, and technical skills for deep LLM ingestion.",
+  aiReady: {
+    // Static GitHub Pages has no runtime. Caching llms.txt during prerender
+    // can reuse an earlier sitemap-only snapshot without page titles.
+    llmsTxtCacheSeconds: 0,
+    llmsTxt: {
+      markdownLinks: true,
+      notes: [
+        "Personal portfolio of Catur Bagaskara, Senior Software Developer at Xurya Daya Indonesia.",
+        "Canonical site: https://caturbgs.github.io/catur-portofolio-web/",
+      ],
+      sections: [
+        {
+          title: "Profiles",
+          links: [
+            { title: "GitHub", href: "https://github.com/caturbgs", description: "Source and public work" },
+            { title: "LinkedIn", href: "https://linkedin.com/in/caturbagas", description: "Career profile" },
+          ],
+        },
+      ],
+    },
+    mdreamOptions: {
+      minimal: true,
+      ignoreSelectors: ["header", "footer", "nav"],
     },
   },
 
@@ -107,6 +130,9 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
+      // Do not list /llms.txt or /llms-full.txt here. AI Ready prerenders them
+      // after pages are indexed. Listing them first produces sitemap-only
+      // titles (paths, not About/Experience/Projects) and missing .md links.
       routes: ["/sitemap.xml", "/__sitemap__/style.xsl"],
     },
   },

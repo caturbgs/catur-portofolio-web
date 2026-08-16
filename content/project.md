@@ -1,5 +1,5 @@
 ---
-title: 'Catur Bagaskara'
+title: "Projects"
 description: 'Catur Bagaskara is a Senior Software Developer at Xurya Daya Indonesia.'
 ---
 
