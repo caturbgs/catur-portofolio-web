@@ -39,11 +39,6 @@ export default defineNuxtConfig({
 
   sitemap: {
     zeroRuntime: true,
-    xsl: false,
-    credits: false,
-    minify: true,
-    discoverImages: false,
-    discoverVideos: false,
     excludeAppSources: true,
     urls: ["/", "/about/", "/experience/", "/project/"],
   },
@@ -112,7 +107,7 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
-      routes: ["/sitemap.xml"],
+      routes: ["/sitemap.xml", "/__sitemap__/style.xsl"],
     },
   },
 
