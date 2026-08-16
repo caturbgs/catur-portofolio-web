@@ -38,9 +38,10 @@ export default defineNuxtConfig({
   },
 
   sitemap: {
-    sitemapName: "sitemap-pages.xml",
+    zeroRuntime: true,
     xsl: false,
     credits: false,
+    minify: true,
     discoverImages: false,
     discoverVideos: false,
     excludeAppSources: true,
@@ -106,6 +107,12 @@ export default defineNuxtConfig({
         wght: "200..900",
       },
       Inconsolata: true,
+    },
+  },
+
+  nitro: {
+    prerender: {
+      routes: ["/sitemap.xml"],
     },
   },
 
