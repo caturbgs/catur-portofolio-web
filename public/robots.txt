@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://caturbgs.github.io/catur-portofolio-web/sitemap.xml
+Sitemap: https://caturbgs.github.io/catur-portofolio-web/sitemap-pages.xml

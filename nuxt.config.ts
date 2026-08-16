@@ -21,8 +21,10 @@ export default defineNuxtConfig({
   ],
 
   // Site Configuration for Nuxt SEO
+  // Host only: Nuxt SEO appends app.baseURL. Including the project path here
+  // doubled every canonical and sitemap loc (…/catur-portofolio-web/catur-portofolio-web/).
   site: {
-    url: "https://caturbgs.github.io/catur-portofolio-web",
+    url: "https://caturbgs.github.io",
     name: "Catur Bagaskara",
     description:
       "Senior Software Developer specializing in Typescript (Vue.js, ReactJS, and Node.js), Go, Flutter, and Systems Design.",
@@ -36,7 +38,13 @@ export default defineNuxtConfig({
   },
 
   sitemap: {
-    exclude: ["/catur-portofolio-web", "/catur-portofolio-web/"],
+    sitemapName: "sitemap-pages.xml",
+    xsl: false,
+    credits: false,
+    discoverImages: false,
+    discoverVideos: false,
+    excludeAppSources: true,
+    urls: ["/", "/about/", "/experience/", "/project/"],
   },
 
   llms: {
