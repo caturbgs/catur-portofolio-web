@@ -1,5 +1,5 @@
 ---
-title: 'Catur Bagaskara'
+title: "About"
 description: 'Catur Bagaskara is the Fullstack Developer of Xurya Daya Indonesia.'
 ---
 
