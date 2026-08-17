@@ -1,0 +1,136 @@
+{
+  "format_on_save": "on",
+  "lsp": {
+    "biome": {
+      "settings": {
+        "require_config_file": true
+      }
+    }
+  },
+  "languages": {
+    "JavaScript": {
+      "language_servers": [
+        "biome",
+        "vtsls",
+        "!eslint",
+        "!oxfmt",
+        "!oxlint",
+        "!typescript-language-server",
+        "!tsgo",
+        "..."
+      ],
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "code_action": "source.fixAll.biome"
+        },
+        {
+          "code_action": "source.organizeImports.biome"
+        },
+        {
+          "language_server": {
+            "name": "biome"
+          }
+        }
+      ]
+    },
+    "TypeScript": {
+      "language_servers": [
+        "biome",
+        "vtsls",
+        "!eslint",
+        "!oxfmt",
+        "!oxlint",
+        "!typescript-language-server",
+        "!tsgo",
+        "..."
+      ],
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "code_action": "source.fixAll.biome"
+        },
+        {
+          "code_action": "source.organizeImports.biome"
+        },
+        {
+          "language_server": {
+            "name": "biome"
+          }
+        }
+      ]
+    },
+    "TSX": {
+      "language_servers": [
+        "biome",
+        "vtsls",
+        "!eslint",
+        "!oxfmt",
+        "!oxlint",
+        "!typescript-language-server",
+        "!tsgo",
+        "..."
+      ],
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "code_action": "source.fixAll.biome"
+        },
+        {
+          "code_action": "source.organizeImports.biome"
+        },
+        {
+          "language_server": {
+            "name": "biome"
+          }
+        }
+      ]
+    },
+    "JSON": {
+      "language_servers": [
+        "biome",
+        "..."
+      ],
+      "formatter": {
+        "language_server": {
+          "name": "biome"
+        }
+      }
+    },
+    "Vue.js": {
+      "language_servers": [
+        "biome",
+        "vue-language-server",
+        "tailwindcss-language-server",
+        "vtsls",
+        "!eslint",
+        "!oxfmt",
+        "!oxlint",
+        "!typescript-language-server",
+        "..."
+      ],
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "code_action": "source.fixAll.biome"
+        },
+        {
+          "code_action": "source.organizeImports.biome"
+        },
+        {
+          "language_server": {
+            "name": "biome"
+          }
+        }
+      ]
+    }
+  }
+}
