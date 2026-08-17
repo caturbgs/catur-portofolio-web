@@ -1,4 +1,10 @@
 <script setup lang="ts">
+import { joinURL } from "ufo";
+
+const { app } = useRuntimeConfig();
+const asset = (path: string) => joinURL(app.baseURL, path);
+const site = useSiteConfig();
+
 useHead({
   meta: [
     { name: "description", content: "Senior Software Developer at Xurya Daya Indonesia" },
@@ -8,35 +14,35 @@ useHead({
     {
       rel: "icon",
       type: "image/x-icon",
-      href: "/catur-portofolio-web/favicon.ico",
+      href: asset("favicon.ico"),
     },
     {
       rel: "icon",
       type: "image/png",
-      href: "/catur-portofolio-web/favicon-16x16.png",
+      href: asset("favicon-16x16.png"),
       sizes: "16x16",
     },
     {
       rel: "icon",
       type: "image/png",
-      href: "/catur-portofolio-web/favicon-32x32.png",
+      href: asset("favicon-32x32.png"),
       sizes: "32x32",
     },
     {
       rel: "icon",
       type: "image/png",
-      href: "/catur-portofolio-web/android-chrome-192x192.png",
+      href: asset("android-chrome-192x192.png"),
       sizes: "192x192",
     },
     {
       rel: "icon",
       type: "image/png",
-      href: "/catur-portofolio-web/android-chrome-512x512.png",
+      href: asset("android-chrome-512x512.png"),
       sizes: "512x512",
     },
     {
       rel: "apple-touch-icon",
-      href: "/catur-portofolio-web/apple-touch-icon.png",
+      href: asset("apple-touch-icon.png"),
     },
   ],
   bodyAttrs: {
@@ -54,7 +60,7 @@ useSeoMeta({
 useSchemaOrg([
   definePerson({
     name: "Catur Bagaskara",
-    url: "https://caturbgs.github.io/catur-portofolio-web/",
+    url: site.url,
     image: "/catur-logo.svg",
     sameAs: ["https://github.com/caturbgs", "https://linkedin.com/in/caturbagas"],
     jobTitle: "Senior Software Developer",
