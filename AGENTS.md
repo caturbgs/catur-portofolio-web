@@ -62,8 +62,8 @@ Hosting is split by branch. Do not point Cloudflare Workers Builds at `main` unt
 | Branch | Host | URL |
 |---|---|---|
 | `main` | GitHub Pages (canonical) | `https://caturbgs.github.io/catur-portofolio-web/` |
-| `dev` | Cloudflare Worker (experimental) | `https://catur-portofolio-web.caturbagas4172.workers.dev` |
-| `feat/*` | Cloudflare preview (if Builds previews are on) | `https://<branch>-catur-portofolio-web.caturbagas4172.workers.dev` |
+| `dev` | Cloudflare Worker (experimental) | `https://catur-portofolio-web.caturbgs.workers.dev` |
+| `feat/*` | Cloudflare preview (if Builds previews are on) | `https://<branch>-catur-portofolio-web.caturbgs.workers.dev` |
 
 - Setup PRs (`feat/cloudflare-workers`) merge into **`dev`**, not `main`.
 - **Cutover:** PR `dev` → `main`, set `NUXT_SITE_INDEXABLE=true`, then disable the GitHub Pages workflow.
