@@ -7,9 +7,10 @@ Use **Bun** exclusively. Never `npm` or `npx`.
 ```bash
 bun install          # install deps
 bun run dev          # dev server → http://localhost:3000
-bun run build        # production build (SSR)
-bun run generate     # static export (SSG)
+bun run build        # static export (SSG; used by Cloudflare)
+bun run generate     # same as build
 bun run preview      # preview production build
+bun run preview:workers  # wrangler dev
 ```
 
 ## Linting & Formatting
@@ -32,7 +33,7 @@ Always run `bun run lint` after edits. There is no typecheck script — TypeScri
 
 ## Architecture
 
-**Nuxt 4** app with SSR enabled, deployed as a static site to **GitHub Pages**.
+**Nuxt 4** app with SSR enabled, deployed as a static site. See Deployment for which branch goes where.
 
 - `pages/` — file-based routes (`index.vue`, `about.vue`, `experience.vue`, `project.vue`)
 - `components/` — shared components (`Header.vue`, `Navbar.vue`, `Footer.vue`) + `components/ui/` (shadcn-vue)
@@ -56,13 +57,26 @@ Markdown files use MDC syntax. All files must include frontmatter with `title` a
 
 ## Deployment
 
-Build command for GitHub Pages:
+Hosting is split by branch. Do not point Cloudflare Workers Builds at `main` until cutover.
+
+| Branch | Host | URL |
+|---|---|---|
+| `main` | GitHub Pages (canonical) | `https://caturbgs.github.io/catur-portofolio-web/` |
+| `dev` | Cloudflare Worker (experimental) | `https://catur-portofolio-web.caturbagas4172.workers.dev` |
+| `feat/*` | Cloudflare preview (if Builds previews are on) | `https://<branch>-catur-portofolio-web.caturbagas4172.workers.dev` |
+
+- Setup PRs (`feat/cloudflare-workers`) merge into **`dev`**, not `main`.
+- **Cutover:** PR `dev` → `main`, set `NUXT_SITE_INDEXABLE=true`, then disable the GitHub Pages workflow.
+- Until cutover, Cloudflare build var `NUXT_SITE_INDEXABLE=false` (noindex). Pages stays indexed.
+- Cloudflare build must stay static: `NITRO_PRESET=static bun run generate`. Never `nuxt build` as Worker SSR — `@nuxt/content` then demands D1.
+
+GitHub Pages (`main` only):
 
 ```bash
 NUXT_APP_BASE_URL=/catur-portofolio-web/ bunx nuxt build --preset github_pages
 ```
 
-Output goes to `.output/public`. The base URL `/catur-portofolio-web/` is set in `nuxt.config.ts` as `app.baseURL` and must match at build time. Favicon and manifest hrefs are prefixed with this base URL.
+Cloudflare (`dev`): output is `.output/public`, served as Workers static assets via `wrangler.jsonc`. `NUXT_APP_BASE_URL` defaults to `/`. GitHub Actions still overrides the Pages subpath on `main`.
 
 ## LLM Content (`nuxt-ai-ready`)
 

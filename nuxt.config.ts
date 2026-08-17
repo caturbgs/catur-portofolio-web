@@ -1,5 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import { joinURL } from "ufo";
 import { flattenAiMarkdown } from "./lib/flatten-ai-markdown";
+
+// GitHub Pages sets NUXT_APP_BASE_URL=/catur-portofolio-web/. Cloudflare Workers
+// and local dev serve the app at the domain root.
+const baseURL = process.env.NUXT_APP_BASE_URL ?? "/";
+const siteUrl = process.env.NUXT_SITE_URL ?? "https://caturbgs.github.io";
 
 export default defineNuxtConfig({
   hooks: {
@@ -31,12 +37,13 @@ export default defineNuxtConfig({
   // Host only: Nuxt SEO appends app.baseURL. Including the project path here
   // doubled every canonical and sitemap loc (…/catur-portofolio-web/catur-portofolio-web/).
   site: {
-    url: "https://caturbgs.github.io",
+    url: siteUrl,
     name: "Catur Bagaskara",
     description:
       "Senior Software Developer specializing in Typescript (Vue.js, ReactJS, and Node.js), Go, Flutter, and Systems Design.",
     defaultLocale: "en",
-    indexable: true,
+    // Cloudflare `dev` sets NUXT_SITE_INDEXABLE=false until Pages cutover.
+    indexable: process.env.NUXT_SITE_INDEXABLE !== "false",
     trailingSlash: true,
   },
 
@@ -86,7 +93,7 @@ export default defineNuxtConfig({
 
   // App Config
   app: {
-    baseURL: "/catur-portofolio-web/",
+    baseURL,
     head: {
       htmlAttrs: {
         lang: "en",
@@ -96,9 +103,9 @@ export default defineNuxtConfig({
         {
           rel: "icon",
           type: "image/x-icon",
-          href: "/catur-portofolio-web/favicon.ico",
+          href: joinURL(baseURL, "favicon.ico"),
         },
-        { rel: "manifest", href: "/catur-portofolio-web/site.webmanifest" },
+        { rel: "manifest", href: joinURL(baseURL, "site.webmanifest") },
       ],
       meta: [{ name: "theme-color", content: "#ffffff" }],
     },
@@ -130,10 +137,11 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
+      crawlLinks: true,
       // Do not list /llms.txt or /llms-full.txt here. AI Ready prerenders them
       // after pages are indexed. Listing them first produces sitemap-only
       // titles (paths, not About/Experience/Projects) and missing .md links.
-      routes: ["/sitemap.xml", "/__sitemap__/style.xsl"],
+      routes: ["/", "/about/", "/experience/", "/project/", "/sitemap.xml", "/__sitemap__/style.xsl"],
     },
   },
 
