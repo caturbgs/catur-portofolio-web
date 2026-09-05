@@ -63,7 +63,7 @@ const { data: experienceDoc } = await useAsyncData("experience-home", () => {
           and systems design.
         </p>
         <NuxtLink
-          to="/about"
+          to="/about/"
           class="group inline-flex items-center text-sm font-bold tracking-tight hover:text-primary transition-colors"
         >
           Explore my journey <span class="ml-2 transition-transform group-hover:translate-x-1">→</span>
@@ -78,7 +78,9 @@ const { data: experienceDoc } = await useAsyncData("experience-home", () => {
         <h2 class="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground/60">Work</h2>
         <div class="space-y-10">
           <div class="group space-y-2">
-            <p class="text-[10px] font-bold font-mono uppercase tracking-widest text-muted-foreground/40">Present</p>
+            <p class="text-[10px] font-bold font-mono uppercase tracking-widest text-muted-foreground/40">
+              Jul 2023 — Present
+            </p>
             <div>
               <h3 class="font-bold text-lg group-hover:text-primary transition-colors">Senior Software Developer</h3>
               <p class="text-muted-foreground font-medium">Xurya Daya Indonesia</p>
@@ -86,7 +88,7 @@ const { data: experienceDoc } = await useAsyncData("experience-home", () => {
           </div>
           <div class="group space-y-2">
             <p class="text-[10px] font-bold font-mono uppercase tracking-widest text-muted-foreground/40">
-              2022 — 2023
+              May 2022 — Jul 2023
             </p>
             <div>
               <h3 class="font-bold text-lg text-muted-foreground/80 group-hover:text-primary transition-colors">
@@ -97,7 +99,7 @@ const { data: experienceDoc } = await useAsyncData("experience-home", () => {
           </div>
         </div>
         <NuxtLink
-          to="/experience"
+          to="/experience/"
           class="group inline-flex items-center text-sm font-bold tracking-tight hover:text-primary transition-colors pt-4"
         >
           View full history
@@ -109,7 +111,7 @@ const { data: experienceDoc } = await useAsyncData("experience-home", () => {
       <section class="space-y-8">
         <h2 class="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground/60">Featured Projects</h2>
         <div class="space-y-10">
-          <NuxtLink to="/project" class="group block space-y-2">
+          <NuxtLink to="/project/" class="group block space-y-2">
             <p class="text-[10px] font-bold font-mono uppercase tracking-widest text-muted-foreground/40">
               Renewable Energy
             </p>
@@ -123,7 +125,7 @@ const { data: experienceDoc } = await useAsyncData("experience-home", () => {
               </p>
             </div>
           </NuxtLink>
-          <NuxtLink to="/project" class="group block space-y-2">
+          <NuxtLink to="/project/" class="group block space-y-2">
             <p class="text-[10px] font-bold font-mono uppercase tracking-widest text-muted-foreground/40">Mobility</p>
             <div>
               <h3 class="font-bold text-lg group-hover:text-primary transition-colors flex items-center">
@@ -137,7 +139,7 @@ const { data: experienceDoc } = await useAsyncData("experience-home", () => {
           </NuxtLink>
         </div>
         <NuxtLink
-          to="/project"
+          to="/project/"
           class="group inline-flex items-center text-sm font-bold tracking-tight hover:text-primary transition-colors pt-4"
         >
           Browse all projects
