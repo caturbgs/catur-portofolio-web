@@ -1,6 +1,12 @@
 <script setup lang="ts">
-// get route
 const route = useRoute();
+
+function normalizePath(path: string) {
+  if (!path || path === "/") return "/";
+  return path.replace(/\/+$/, "") || "/";
+}
+
+const isHome = computed(() => normalizePath(route.path) === "/");
 </script>
 
 <template>
@@ -11,7 +17,7 @@ const route = useRoute();
       <div class="flex items-center justify-between w-full h-full pb-2">
         <!-- Logo Name -->
         <span
-          v-if="route.path === '/'"
+          v-if="isHome"
           class="text-xs sm:text-sm md:text-base font-bold tracking-tight cursor-default whitespace-nowrap"
           >Catur Bagaskara</span
         >

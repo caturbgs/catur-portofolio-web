@@ -86,7 +86,8 @@ export default defineNuxtConfig({
 
   // App Config
   app: {
-    baseURL: "/catur-portofolio-web/",
+    baseURL,
+    pageTransition: { name: "page", mode: "out-in" },
     head: {
       htmlAttrs: {
         lang: "en",
