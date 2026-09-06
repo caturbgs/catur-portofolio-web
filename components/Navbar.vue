@@ -59,12 +59,14 @@ function handleChangeTheme() {
 </script>
 
 <template>
-  <nav class="flex items-center space-x-2 md:space-x-8 font-mono">
+  <nav
+    class="flex min-w-0 items-center gap-1 sm:gap-2 md:gap-8 font-mono w-full justify-end sm:w-auto sm:flex-none"
+  >
     <NuxtLink
       v-for="link in links"
       :key="link.path"
       :to="link.path"
-      class="text-sm font-medium px-2 py-1 transition-colors"
+      class="text-xs sm:text-sm font-medium px-1.5 py-2 sm:px-2 sm:py-1 whitespace-nowrap transition-colors"
       :class="
         isActive(link.path)
           ? 'text-foreground cursor-default'
@@ -80,7 +82,7 @@ function handleChangeTheme() {
         <TooltipTrigger as-child>
           <button
             type="button"
-            class="text-muted-foreground hover:text-foreground transition-colors p-1 group"
+            class="text-muted-foreground hover:text-foreground transition-colors p-1.5 sm:p-1 group shrink-0"
             @click="handleChangeTheme()"
           >
             <ClientOnly>

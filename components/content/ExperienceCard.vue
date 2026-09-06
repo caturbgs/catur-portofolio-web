@@ -16,7 +16,9 @@ defineProps<{
         </h3>
         <p class="font-semibold text-foreground/70">{{ title }}</p>
       </div>
-      <span class="text-sm font-medium text-muted-foreground font-mono bg-muted/30 px-2 py-0.5 rounded tabular-nums">
+      <span
+        class="self-start w-fit text-sm font-medium text-muted-foreground font-mono bg-muted/30 px-2 py-0.5 rounded tabular-nums"
+      >
         {{ period }}
       </span>
     </div>

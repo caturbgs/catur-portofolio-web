@@ -4,7 +4,7 @@ import { Github, Linkedin } from "lucide-vue-next";
 
 <template>
   <footer class="h-[--header-height-mobile] sm:h-[--header-height] text-sm font-mono w-full">
-    <div class="container px-3 sm:px-8 md:max-w-screen-md h-full flex justify-between items-center">
+    <div class="mx-auto w-full md:max-w-screen-md px-5 sm:px-8 h-full flex justify-between items-center">
       <HoverCard :open-delay="0">
         <HoverCardTrigger as-child>
           <button type="button" class="hover:cursor-pointer text-gray-500">Catur Bagaskara</button>
