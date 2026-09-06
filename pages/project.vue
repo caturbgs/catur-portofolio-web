@@ -15,7 +15,7 @@ const { data: doc } = await useAsyncData(route.path, () => {
 <template>
   <div class="space-y-12 py-10">
     <div class="space-y-4">
-      <h1 class="text-4xl font-bold tracking-tight">Projects</h1>
+      <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">Projects</h1>
       <p class="text-muted-foreground text-lg max-w-2xl leading-relaxed">
         A selection of my recent work, ranging from large-scale enterprise systems to experimental web applications.
       </p>

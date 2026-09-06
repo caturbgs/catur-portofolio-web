@@ -77,7 +77,7 @@ useSchemaOrg([
 <template>
   <Header />
   <main
-    class="container px-3 sm:p-8 md:max-w-screen-md min-h-[calc(100vh-(var(--header-height-mobile)*2))] md:min-h-[calc(100vh-(var(--header-height)*2))]"
+    class="mx-auto w-full md:max-w-screen-md px-5 sm:px-8 sm:py-8 min-h-[calc(100vh-(var(--header-height-mobile)*2))] md:min-h-[calc(100vh-(var(--header-height)*2))]"
   >
     <NuxtPage />
   </main>

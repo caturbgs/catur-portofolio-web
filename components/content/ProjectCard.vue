@@ -27,11 +27,11 @@ defineProps<{
       <p class="text-muted-foreground text-base leading-relaxed max-w-2xl font-medium">{{ description }}</p>
 
       <!-- Technologies Area - Subtle and secondary -->
-      <div class="flex flex-wrap gap-x-6 gap-y-2 pt-2">
+      <div class="flex flex-wrap gap-x-3 sm:gap-x-6 gap-y-1.5 pt-2">
         <span
           v-for="tech in technologies"
           :key="tech"
-          class="text-[12px] font-bold font-mono uppercase tracking-[0.2em] text-muted-foreground/50 hover:text-muted-foreground/80 transition-colors cursor-default"
+          class="text-[12px] font-bold font-mono uppercase tracking-wider sm:tracking-[0.2em] text-muted-foreground/50 hover:text-muted-foreground/80 transition-colors cursor-default"
         >
           {{ tech }}
         </span>

@@ -23,7 +23,7 @@ const { data: experienceDoc } = await useAsyncData("experience-home", () => {
     <!-- Hero Section -->
     <section class="space-y-8 pt-12 md:pt-20">
       <div class="space-y-4">
-        <h1 class="text-4xl md:text-5xl font-bold tracking-tighter leading-tight">Catur Bagaskara</h1>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter leading-tight">Catur Bagaskara</h1>
         <p class="text-lg md:text-xl text-muted-foreground font-medium max-w-2xl leading-relaxed">
           Senior Software Developer at
           <span class="text-foreground border-b-2 border-primary/20">Xurya Daya Indonesia</span>. Focused on building
