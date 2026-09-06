@@ -59,9 +59,7 @@ function handleChangeTheme() {
 </script>
 
 <template>
-  <nav
-    class="flex min-w-0 items-center gap-1 sm:gap-2 md:gap-8 font-mono w-full justify-end sm:w-auto sm:flex-none"
-  >
+  <nav class="flex min-w-0 items-center gap-1 sm:gap-2 md:gap-8 font-mono justify-end">
     <NuxtLink
       v-for="link in links"
       :key="link.path"
