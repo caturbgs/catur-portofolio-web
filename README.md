@@ -51,12 +51,18 @@ Start the development server on `http://localhost:3000`:
 bun run dev
 ```
 
-## Production
+## Production deployment
 
-Build the application for production:
+Generate the static site for Cloudflare Workers:
 
 ```bash
-bun run build
+NITRO_PRESET=static NUXT_SITE_URL=https://caturbgs.xyz NUXT_SITE_INDEXABLE=true bun run generate
+```
+
+Deploy the generated `.output/public` assets to the configured Worker:
+
+```bash
+bun run deploy
 ```
 
 Locally preview production build:
@@ -64,3 +70,5 @@ Locally preview production build:
 ```bash
 bun run preview
 ```
+
+Production deploys from `main` are handled by GitHub Actions. Configure the repository secrets `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN` before enabling the workflow.

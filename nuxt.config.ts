@@ -2,10 +2,9 @@
 import { joinURL } from "ufo";
 import { flattenAiMarkdown } from "./lib/flatten-ai-markdown";
 
-// GitHub Pages sets NUXT_APP_BASE_URL=/catur-portofolio-web/. Cloudflare Workers
-// and local dev serve the app at the domain root.
+// Cloudflare Workers and local dev serve the app at the domain root.
 const baseURL = process.env.NUXT_APP_BASE_URL ?? "/";
-const siteUrl = process.env.NUXT_SITE_URL ?? "https://caturbgs.github.io";
+const siteUrl = process.env.NUXT_SITE_URL ?? "https://caturbgs.xyz";
 
 export default defineNuxtConfig({
   hooks: {
@@ -42,7 +41,6 @@ export default defineNuxtConfig({
     description:
       "Senior Software Developer specializing in Typescript (Vue.js, ReactJS, and Node.js), Go, Flutter, and Systems Design.",
     defaultLocale: "en",
-    // Cloudflare `dev` sets NUXT_SITE_INDEXABLE=false until Pages cutover.
     indexable: process.env.NUXT_SITE_INDEXABLE !== "false",
     trailingSlash: true,
   },
@@ -58,14 +56,14 @@ export default defineNuxtConfig({
   },
 
   aiReady: {
-    // Static GitHub Pages has no runtime. Caching llms.txt during prerender
+    // Static hosting has no runtime. Caching llms.txt during prerender
     // can reuse an earlier sitemap-only snapshot without page titles.
     llmsTxtCacheSeconds: 0,
     llmsTxt: {
       markdownLinks: true,
       notes: [
         "Personal portfolio of Catur Bagaskara, Senior Software Developer at Xurya Daya Indonesia.",
-        "Canonical site: https://caturbgs.github.io/catur-portofolio-web/",
+        "Canonical site: https://caturbgs.xyz/",
       ],
       sections: [
         {
