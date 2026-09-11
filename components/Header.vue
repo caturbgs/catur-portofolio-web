@@ -18,7 +18,7 @@ const brandMarkClass = "shrink-0 font-bold tracking-tight";
     <div class="mx-auto w-full md:max-w-screen-md px-5 sm:px-8 border-b border-muted/10">
       <div class="flex items-center justify-between gap-x-3 w-full pb-4">
         <!-- Logo: stacked on mobile so nav keeps one row; single line from sm up -->
-        <span v-if="isHome" :class="[brandMarkClass, 'cursor-default']" aria-label="Catur Bagaskara">
+        <span v-if="isHome" :class="[brandMarkClass, 'cursor-default']">
           <span class="flex flex-col text-sm leading-[1.15] sm:hidden" aria-hidden="true">
             <span>Catur</span>
             <span>Bagaskara</span>

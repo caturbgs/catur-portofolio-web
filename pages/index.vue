@@ -71,7 +71,7 @@ useSeoMeta({
     <section class="space-y-6">
       <h2 class="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">Profile</h2>
       <div class="max-w-3xl space-y-4">
-        <p class="text-lg text-muted-foreground/90 leading-relaxed font-medium">
+        <p class="text-lg leading-relaxed font-medium text-muted-foreground">
           Based in Depok, West Java. I specialize in building everything from logic-heavy REST APIs to beautifully
           designed frontend experiences. My expertise lies in Typescript (Vue.js, ReactJS, and Node.js), Go, Flutter,
           and systems design.
