@@ -3,4 +3,4 @@ Allow: /
 
 Content-Signal: search=yes, ai-train=yes, ai-input=yes
 
-Sitemap: https://caturbgs.github.io/catur-portofolio-web/sitemap.xml
+Sitemap: https://caturbgs.xyz/sitemap.xml

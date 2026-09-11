@@ -33,7 +33,7 @@ Always run `bun run lint` after edits. There is no typecheck script — TypeScri
 
 ## Architecture
 
-**Nuxt 4** app with SSR enabled, deployed as a static site. See Deployment for which branch goes where.
+**Nuxt 4** app with SSR enabled, deployed as a static Cloudflare Worker.
 
 - `pages/` — file-based routes (`index.vue`, `about.vue`, `experience.vue`, `project.vue`)
 - `components/` — shared components (`Header.vue`, `Navbar.vue`, `Footer.vue`) + `components/ui/` (shadcn-vue)
@@ -57,36 +57,32 @@ Markdown files use MDC syntax. All files must include frontmatter with `title` a
 
 ## Deployment
 
-Hosting is split by branch. Do not point Cloudflare Workers Builds at `main` until cutover.
-
 | Branch | Host | URL |
 |---|---|---|
-| `main` | GitHub Pages (canonical) | `https://caturbgs.github.io/catur-portofolio-web/` |
-| `dev` | Cloudflare Worker (experimental) | `https://catur-portofolio-web.caturbgs.workers.dev` |
-| `feat/*` | Cloudflare preview (if Builds previews are on) | `https://<branch>-catur-portofolio-web.caturbgs.workers.dev` |
+| `main` | Cloudflare Workers (canonical) | `https://caturbgs.xyz/` |
+| `dev` | Development branch | Local/preview only |
+| `feat/*` | Cloudflare preview (if enabled) | Wrangler preview URL |
 
-- Setup PRs (`feat/cloudflare-workers`) merge into **`dev`**, not `main`.
-- **Cutover:** PR `dev` → `main`, set `NUXT_SITE_INDEXABLE=true`, then disable the GitHub Pages workflow.
-- Until cutover, Cloudflare build var `NUXT_SITE_INDEXABLE=false` (noindex). Pages stays indexed.
-- Cloudflare build must stay static: `NITRO_PRESET=static bun run generate`. Never `nuxt build` as Worker SSR — `@nuxt/content` then demands D1.
+- Production deploys run from `main` through `.github/workflows/deploy-cloudflare-workers.yml`.
+- Cloudflare build must stay static: `NITRO_PRESET=static bun run generate`. Never deploy Nuxt SSR as a Worker — `@nuxt/content` then demands D1.
+- The Worker uses `caturbgs.xyz` as a Custom Domain. The Cloudflare zone must be active before the first production deployment.
 
-GitHub Pages (`main` only):
+Production deployment locally:
 
 ```bash
-NUXT_APP_BASE_URL=/catur-portofolio-web/ bunx nuxt build --preset github_pages
+NITRO_PRESET=static NUXT_SITE_URL=https://caturbgs.xyz NUXT_SITE_INDEXABLE=true bun run generate
+bun run deploy
 ```
-
-Cloudflare (`dev`): output is `.output/public`, served as Workers static assets via `wrangler.jsonc`. `NUXT_APP_BASE_URL` defaults to `/`. GitHub Actions still overrides the Pages subpath on `main`.
 
 ## LLM Content (`nuxt-ai-ready`)
 
-`nuxt-ai-ready` is installed alongside `@nuxtjs/seo` and `@nuxt/content`. At GitHub Pages build time it generates:
+`nuxt-ai-ready` is installed alongside `@nuxtjs/seo` and `@nuxt/content`. At the static production build it generates:
 
 - `/llms.txt` — site overview for LLM crawlers
 - `/llms-full.txt` — full page markdown
 - `.md` routes for prerendered pages (e.g. `/about.md`)
 
-Canonical origin is `https://caturbgs.github.io/catur-portofolio-web`. Production MCP is not used — GitHub Pages is static.
+Canonical origin is `https://caturbgs.xyz`. Production MCP is not used — Cloudflare serves the generated static assets.
 
 ## Docker
 
