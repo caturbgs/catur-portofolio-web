@@ -8,6 +8,16 @@
   },
   "overrides": [
     {
+      "includes": ["assets/css/tailwind.css", "assets/css/global.css"],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "noUnknownAtRules": "off"
+          }
+        }
+      }
+    },
+    {
       "includes": ["**/*.svelte", "**/*.astro", "**/*.vue"],
       "linter": {
         "domains": {

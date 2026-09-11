@@ -1,18 +1,22 @@
 services:
   catur-portofolio-web:
     container_name: catur-portofolio-web
-    platform: linux/amd64
     image: ghcr.io/caturbgs/catur-portofolio-web:latest
     env_file:
-      - .env
-    # Environment variables will be loaded from .env file
-    # You can still override specific variables here if needed
-    # environment:
-    #   - NUXT_PUBLIC_API_BASE=/api/new
+      - path: .env
+        required: false
     restart: unless-stopped
+    init: true
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    tmpfs:
+      - /tmp
+      - /app/.data
     ports:
       - "3000:3000"
-    # resources limitation
     deploy:
       resources:
         limits:

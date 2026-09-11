@@ -1,41 +1,18 @@
-FROM oven/bun:latest AS base-bun
-FROM node:23-alpine AS base-node
-
-# Build stage
-FROM base-bun AS builder
-
-# Set working directory
+FROM oven/bun:1.4.2-alpine AS builder
 WORKDIR /app
-
 COPY package.json bun.lock ./
-
-# Install dependencies
 RUN bun install --frozen-lockfile
-
-# Copy the rest of the application code
 COPY . .
+RUN bun run build:ssr
 
-# Environment variables at build time
-ARG NUXT_PUBLIC_API_BASE
-ENV NUXT_PUBLIC_API_BASE=${NUXT_PUBLIC_API_BASE}
-
-# Build the Nuxt application
-RUN bun run build
-
-# Production stage
-FROM base-node AS runner
-
-# Set working directory
+FROM oven/bun:1.4.2-alpine AS runner
 WORKDIR /app
-
-# Copy built app from builder stage
-COPY --from=builder /app/.output /app/.output
-
-# Build-time environment variables are already baked into the build
-# Runtime environment variables can be passed via docker-compose.yaml
-
-# Set environment variable
-# ENV NODE_ENV=production
-
-# Command to run the application
-CMD ["node", ".output/server/index.mjs"]
+ENV NODE_ENV=production \
+  HOST=0.0.0.0 \
+  PORT=3000
+COPY --from=builder --chown=bun:bun /app/.output /app/.output
+USER bun
+EXPOSE 3000
+HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
+  CMD ["bun", "-e", "fetch('http://127.0.0.1:3000/').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+CMD ["bun", ".output/server/index.mjs"]

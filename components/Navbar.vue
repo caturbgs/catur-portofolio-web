@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { useColorMode } from "@vueuse/core";
+import { useColorMode, useCycleList } from "@vueuse/core";
 import { Computer, Moon, Sun } from "lucide-vue-next";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 const route = useRoute();
 
@@ -64,7 +65,7 @@ function handleChangeTheme() {
       v-for="link in links"
       :key="link.path"
       :to="link.path"
-      class="text-xs sm:text-sm font-medium px-1.5 py-2 sm:px-2 sm:py-1 whitespace-nowrap transition-colors"
+      class="rounded-sm px-1.5 py-3 text-xs font-medium whitespace-nowrap transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 sm:px-2 sm:text-sm"
       :class="
         isActive(link.path)
           ? 'text-foreground cursor-default'
@@ -80,23 +81,19 @@ function handleChangeTheme() {
         <TooltipTrigger as-child>
           <button
             type="button"
-            class="text-muted-foreground hover:text-foreground transition-colors p-1.5 sm:p-1 group shrink-0"
+            :aria-label="mounted ? buttonText : 'Toggle theme'"
+            class="group grid size-11 shrink-0 place-items-center rounded text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 sm:size-10"
             @click="handleChangeTheme()"
           >
             <ClientOnly>
               <Computer v-if="themeIcon === 'auto'" class="size-4 group-hover:animate-ring-bell" />
               <Moon v-else-if="themeIcon === 'dark'" class="size-4 group-hover:animate-ring-bell" />
               <Sun v-else class="size-4 group-hover:animate-ring-bell" />
-              <template #fallback>
-                <Computer class="size-4" />
-              </template>
+              <template #fallback> <Computer class="size-4" /> </template>
             </ClientOnly>
-            <span class="sr-only">Toggle theme</span>
           </button>
         </TooltipTrigger>
-        <TooltipContent>
-          <p class="font-mono text-xs">{{ mounted ? buttonText : "Toggle theme" }}</p>
-        </TooltipContent>
+        <TooltipContent> <p class="font-mono text-xs">{{ mounted ? buttonText : "Toggle theme" }}</p> </TooltipContent>
       </Tooltip>
     </TooltipProvider>
   </nav>

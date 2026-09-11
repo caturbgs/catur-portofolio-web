@@ -1,22 +1,14 @@
 ---
 title: "About"
-description: 'Catur Bagaskara is the Fullstack Developer of Xurya Daya Indonesia.'
+description: "Catur Bagaskara is a senior software developer in Depok, Indonesia, focused on web platforms, APIs, and systems design."
 ---
 
-<!-- Content of the page -->
-Greetings! I am Catur Bagaskara, a Software Developer based in Depok, West Java, with a deep passion for Website Development. I am constantly seeking new ways to improve my skills and have honed my expertise in website applications.
-<br><br>
+I’m Catur Bagaskara, a senior software developer based in Depok, West Java. I work across frontend and backend systems, from logic-heavy APIs to web interfaces that make complex workflows easier to use.
 
-I spent my whole childhood in Depok, West Java. It was once a calm, slow-paced satellite city, but now it’s a high-energy hub that’ll make you question your life choices (just kidding!).
-<br><br>
+My curiosity about computers started with the family PC and long sessions playing Pinball and old-school shooters. Games first made computers feel magical; learning how software worked turned that curiosity into a career.
 
-Ever since I was a kid, I’ve been fascinated by all things computer-related. I still remember the first time I used a PC—I could sit for hours on end, day and night, completely absorbed in games like Pinball and old-school shooters. That didn't change in my teenage years. After getting back from school, I would lock myself in my room and get lost in the worlds of the PlayStation 1 and 2.
-<br><br>
+Today, I enjoy the parts of engineering where product thinking and technical depth meet: shaping an architecture, simplifying a development workflow, diagnosing performance problems, and refining the details users notice. My experience spans TypeScript, Vue, React, Node.js, Go, Flutter, cloud infrastructure, and distributed systems.
 
-I think that was the motivation for me to learn how the computer works. I just love to build an application, to make a logic-heavy challenging REST API or make a beautifully eye-catching designed website. I'm feel like just love to the both worlds. Frontend and Backend.
-<br><br>
+Outside work, I enjoy traveling, cooking, and playing games.
 
-Besides coding, I love to traveling to a new place, cooking some foodies, and the last but not least, is playing a games! xD
-<br><br>
-
-If you are interested in learning more about me, you can check out my [LinkedIn](https://www.linkedin.com/in/caturbagas) or [GitHub](https://github.com/caturbgs) profile. I'm always open to hear from you!
+If you’d like to discuss a role or a technical problem, [email me](mailto:caturbagas11@gmail.com). You can also find my work on [GitHub](https://github.com/caturbgs), connect on [LinkedIn](https://www.linkedin.com/in/caturbagas), or [view my résumé](https://drive.google.com/file/d/1WmfurnbJmRYslxEIdwdO7Lcdi6t5QFOk/view?usp=drive_link).

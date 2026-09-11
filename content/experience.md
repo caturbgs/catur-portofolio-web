@@ -1,6 +1,6 @@
 ---
 title: "Experience"
-description: 'Catur Bagaskara is a Senior Software Developer at Xurya Daya Indonesia.'
+description: "Catur Bagaskara's software engineering experience across renewable energy, mobility, business systems, and web products."
 ---
 
 ::experience-card
@@ -8,7 +8,7 @@ description: 'Catur Bagaskara is a Senior Software Developer at Xurya Daya Indon
 company: Xurya Daya Indonesia 
 title: Senior Software Developer 
 period: July 2023 - Present 
-description: Strategically collaborate across departments to architect and implement high-impact features and system optimizations. Spearheaded initiatives to streamline development workflows, significantly reducing time-to-market for new features and bug fixes. Proactively lead research and development for innovative IT infrastructure, ensuring maximum system performance and cost-effectiveness.
+description: Collaborate across product and engineering teams to design features, improve system performance, and simplify delivery workflows. Lead technical research and infrastructure decisions with an emphasis on reliability, maintainability, and cost.
 ---
 ::
 
@@ -17,7 +17,7 @@ description: Strategically collaborate across departments to architect and imple
 company: Xurya Daya Indonesia 
 title: Software Developer 
 period: May 2022 - July 2023 
-description: Led the Frontend Team in continuous system improvements and large-scale refactoring, adhering to modern best practices and performance standards. Partnered closely with Product Managers and the Lead Developer to translate complex system requirements into robust, scalable software designs.
+description: Led frontend improvements and large-scale refactoring while partnering with product managers and engineering leadership to turn complex requirements into maintainable software designs.
 ---
 ::
 
@@ -26,7 +26,7 @@ description: Led the Frontend Team in continuous system improvements and large-s
 company: vOffice Indonesia 
 title: Full Stack Developer 
 period: January 2022 - April 2022 
-description: Collaborated with a cross-functional team to develop and architect the next generation of internal applications. Managed the maintenance and optimization of existing systems, directly incorporating user feedback to enhance overall application stability and user satisfaction.
+description: Helped design and build the next generation of internal business applications. Maintained existing systems and used feedback from internal teams to improve stability and day-to-day usability.
 ---
 ::
 
@@ -35,7 +35,7 @@ description: Collaborated with a cross-functional team to develop and architect 
 company: PT Bangun Kreatif Abadi 
 title: Software Developer 
 period: January 2021 - December 2021 
-description: Delivered high-quality software solutions for a diverse range of international and domestic partners, including Astra Digital International, KESAN, and the Nationaal Werknemer Plan. Focused on building scalable applications and integrating complex third-party services across various digital ecosystems.
+description: Built software for Indonesian and international partners, including Astra Digital International, KESAN, and Nationaal Werknemer Plan. Worked on application architecture, external-service integrations, and web and mobile delivery.
 ---
 ::
 
@@ -44,6 +44,6 @@ description: Delivered high-quality software solutions for a diverse range of in
 company: Smart Computerindo 
 title: PHP Developer Intern 
 period: August 2020 - October 2020 
-description: Engineered a custom Content Management System (CMS) from scratch and successfully transformed complex designer mockups into a functional job search platform. Developed a rigorous attention to detail and a strong sense of ownership throughout the full software development lifecycle.
+description: Built a custom content management system and translated detailed design mockups into a working job-search interface, gaining hands-on experience across the delivery lifecycle.
 ---
 ::

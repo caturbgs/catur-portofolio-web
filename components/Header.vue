@@ -28,7 +28,10 @@ const brandMarkClass = "shrink-0 font-bold tracking-tight";
         <NuxtLink
           v-else
           to="/"
-          :class="[brandMarkClass, 'hover:text-muted-foreground transition-colors']"
+          :class="[
+            brandMarkClass,
+            'rounded-sm transition-colors hover:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-background',
+          ]"
           aria-label="Catur Bagaskara home"
         >
           <span class="flex flex-col text-sm leading-[1.15] sm:hidden" aria-hidden="true">

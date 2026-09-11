@@ -15,7 +15,7 @@ export default defineNuxtConfig({
   ssr: true, // Required for SSG (Static Site Generation)
   compatibilityDate: "2024-11-03",
   devtools: {
-    enabled: true,
+    enabled: process.env.NODE_ENV === "development",
 
     timeline: {
       enabled: true,
@@ -23,14 +23,15 @@ export default defineNuxtConfig({
   },
   modules: [
     "@nuxtjs/tailwindcss",
-    "shadcn-nuxt",
     "@nuxtjs/google-fonts",
     "@nuxt/image",
-    "@vueuse/nuxt",
     "@nuxt/content",
     "@nuxtjs/seo",
     "nuxt-ai-ready",
   ],
+  // UI primitives are imported explicitly. Excluding them from component
+  // auto-discovery prevents barrel files and Vue files sharing a component name.
+  components: [{ path: "~/components", pathPrefix: false, ignore: ["ui/**"] }],
 
   // Site Configuration for Nuxt SEO
   // Host only: Nuxt SEO appends app.baseURL. Including the project path here
@@ -52,7 +53,14 @@ export default defineNuxtConfig({
   sitemap: {
     zeroRuntime: true,
     excludeAppSources: true,
-    urls: ["/", "/about/", "/experience/", "/project/"],
+    urls: [
+      "/",
+      "/about/",
+      "/experience/",
+      "/project/",
+      "/project/rooftop-solar-platform/",
+      "/project/movic-iot-rental/",
+    ],
   },
 
   aiReady: {
@@ -106,26 +114,18 @@ export default defineNuxtConfig({
         },
         { rel: "manifest", href: joinURL(baseURL, "site.webmanifest") },
       ],
-      meta: [{ name: "theme-color", content: "#ffffff" }],
+      meta: [
+        { name: "theme-color", content: "#ffffff", media: "(prefers-color-scheme: light)" },
+        { name: "theme-color", content: "#020617", media: "(prefers-color-scheme: dark)" },
+      ],
     },
   },
   css: ["~/assets/css/tailwind.css", "~/assets/css/global.css"],
 
-  // Shadcn UI Vue
-  shadcn: {
-    /**
-     * Prefix for all the imported component
-     */
-    prefix: "",
-    /**
-     * Directory that the component lives in.
-     * @default "./components/ui"
-     */
-    componentDir: "./components/ui",
-  },
-
   // Setup Google Fonts
   googleFonts: {
+    display: "swap",
+    preload: true,
     families: {
       Inter: {
         wght: "200..900",
@@ -140,13 +140,16 @@ export default defineNuxtConfig({
       // Do not list /llms.txt or /llms-full.txt here. AI Ready prerenders them
       // after pages are indexed. Listing them first produces sitemap-only
       // titles (paths, not About/Experience/Projects) and missing .md links.
-      routes: ["/", "/about/", "/experience/", "/project/", "/sitemap.xml", "/__sitemap__/style.xsl"],
-    },
-  },
-
-  runtimeConfig: {
-    public: {
-      apiBase: "/api",
+      routes: [
+        "/",
+        "/about/",
+        "/experience/",
+        "/project/",
+        "/project/rooftop-solar-platform/",
+        "/project/movic-iot-rental/",
+        "/sitemap.xml",
+        "/__sitemap__/style.xsl",
+      ],
     },
   },
 });

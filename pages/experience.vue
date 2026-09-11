@@ -8,7 +8,7 @@ useSeoMeta({
 
 const route = useRoute();
 const { data: doc } = await useAsyncData(route.path, () => {
-  return queryCollection("content").path(route.path).first();
+  return queryCollection("pages").path(route.path).first();
 });
 </script>
 
@@ -24,7 +24,7 @@ const { data: doc } = await useAsyncData(route.path, () => {
 
     <div class="prose prose-neutral dark:prose-invert max-w-none border-t border-muted/10 pt-10">
       <ContentRenderer v-if="doc" :value="doc" />
-      <div v-else class="py-20 text-center text-muted-foreground italic">Loading experience...</div>
+      <div v-else class="py-20 text-center text-muted-foreground italic">Loading experience…</div>
     </div>
   </div>
 </template>

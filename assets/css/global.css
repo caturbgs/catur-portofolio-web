@@ -1,7 +1,24 @@
 :root {
+  color-scheme: light;
   --expo-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
   --page-leave-ease: cubic-bezier(0.6, 0, 0.8, 1);
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:is(h1, h2, h3, h4)[id] {
+  scroll-margin-top: 6rem;
+}
+
+:is(a, button) {
+  touch-action: manipulation;
 }
 
 /* Custom Transition while change theme (dark mode) */
@@ -56,6 +73,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .page-enter-active,
   .page-leave-active {
     transition: none;
@@ -76,7 +97,7 @@
 
 /* Hyperlink Styling for Content */
 .prose a {
-  @apply text-primary font-medium underline underline-offset-4 decoration-primary/30 hover:decoration-primary transition-all;
+  @apply text-primary font-medium underline underline-offset-4 decoration-primary/30 hover:decoration-primary transition-colors;
 }
 
 .dark .prose a {

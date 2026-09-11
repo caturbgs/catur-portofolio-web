@@ -14,6 +14,7 @@ Inspired by the clean, typography-focused designs of [rauchg.com](https://rauchg
   - Automated dynamic **OpenGraph** image generation.
 - **Simplification**: Removed heavy UI components in favor of clean, direct layouts.
 - **Content**: Migrated to Nuxt Content v3 with MDC (Markdown Component) for project and experience rendering.
+- **Deployment**: Production is hosted on Cloudflare Workers at [caturbgs.xyz](https://caturbgs.xyz/); GitHub Pages is retired.
 
 ## Tech Stack
 
@@ -72,3 +73,13 @@ bun run preview
 ```
 
 Production deploys from `main` are handled by GitHub Actions. Configure the repository secrets `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN` before enabling the workflow.
+
+## SEO
+
+The canonical production URL is `https://caturbgs.xyz/`. Nuxt generates canonical metadata, Open Graph metadata, `robots.txt`, `sitemap.xml`, Schema.org data, and AI discovery files during the static build.
+
+Google Search Console is configured for the `caturbgs.xyz` Domain property. The sitemap is available at [caturbgs.xyz/sitemap.xml](https://caturbgs.xyz/sitemap.xml). After deployment, use Search Console to monitor sitemap processing, indexing, search queries, impressions, clicks, and canonical selection.
+
+The old GitHub Pages URL is retired and returns 404. `www.caturbgs.xyz` redirects permanently to the apex domain. See [docs/seo-long-term-plan.md](docs/seo-long-term-plan.md) for the migration history, current indexing state, and long-term SEO actions.
+
+Google Analytics is optional and is not required for indexing or search ranking. Add GA4 only if visitor behavior and referral traffic need to be measured.

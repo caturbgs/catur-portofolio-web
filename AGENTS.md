@@ -84,6 +84,17 @@ bun run deploy
 
 Canonical origin is `https://caturbgs.xyz`. Production MCP is not used — Cloudflare serves the generated static assets.
 
+## SEO Operations
+
+- Canonical production URL: `https://caturbgs.xyz/`.
+- `www.caturbgs.xyz` is redirect-only and must remain a 301 redirect to the apex domain.
+- The old GitHub Pages URL is retired and returns 404; do not restore GitHub Pages deployment or add Pages-specific base paths.
+- Production builds must use `NUXT_SITE_URL=https://caturbgs.xyz` and `NUXT_SITE_INDEXABLE=true`.
+- Verify `/robots.txt`, `/sitemap.xml`, canonical tags, Open Graph URLs, and `/llms.txt` after SEO/configuration changes.
+- Google Search Console is the source of truth for indexing, canonical selection, sitemap processing, search queries, impressions, and clicks.
+- The current post-migration phase is monitoring: sitemap processing and page indexing may take days or weeks. Do not add `noindex` or change canonical URLs based only on a temporary GSC report.
+- The long-term SEO checklist and current status live in `docs/seo-long-term-plan.md`.
+
 ## Docker
 
 `Dockerfile` + `docker-compose.yaml` for production; `docker-compose-local.yaml` for local container dev.

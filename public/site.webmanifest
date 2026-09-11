@@ -1,6 +1,10 @@
 {
-  "name": "",
-  "short_name": "",
+  "name": "Catur Bagaskara — Software Engineer",
+  "short_name": "Catur Bagaskara",
+  "description": "Portfolio of Catur Bagaskara, a software engineer building reliable web and IoT products.",
+  "start_url": "/",
+  "scope": "/",
+  "lang": "en",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
