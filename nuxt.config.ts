@@ -50,6 +50,7 @@ export default defineNuxtConfig({
   },
 
   sitemap: {
+    sitemapName: "sitemap_index.xml",
     zeroRuntime: true,
     excludeAppSources: true,
     urls: ["/", "/about/", "/experience/", "/project/"],
